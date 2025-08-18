@@ -1,0 +1,129 @@
+
+
+/* Reset + Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: #fdfdfd;
+  color: #333;
+}
+
+/* 🔹 College Header Section */
+.college-header {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #0047ab;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.college-logo {
+  height: 80px;
+}
+
+.college-text .top-small {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+}
+
+.college-text .college-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #003366;
+  margin: 5px 0;
+}
+
+.college-text .sub-info {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  background: #0047ab; /* solid blue bar */
+  padding: 12px 0;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin: 0 18px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00; /* gold highlight on hover */
+}
+
+.navbar p {
+  font-weight: bold;
+  color: white;
+}
+
+
+
+/* 🔹 Sidebar */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0; left: 0;
+  background-color: #eaebff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 9999;              /* sidebar always above images/content */
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3); 
+}
+.sidebar a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+.sidebar a:hover {
+  background: #c4daf567;
+}
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background: #6c63ff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 15px;
+  display: inline-block;
+
+}
+.closebtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+}
