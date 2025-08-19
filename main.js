@@ -85,3 +85,91 @@ function getBotResponse(message) {
   // Return matching response or fallback
   return responses[message] || "Sorry, I don't have information on that. Please try asking about admission, courses, facilities, placement, or hostel.";
 }
+
+//event calender
+const eventsWrapper = document.querySelector('.events-wrapper');
+const prevBtn = document.querySelector('.event-nav.prev');
+const nextBtn = document.querySelector('.event-nav.next');
+
+if (eventsWrapper && prevBtn && nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    eventsWrapper.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    eventsWrapper.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+}
+
+// PDF Modal Logic
+const viewBtn = document.querySelector('.view-calendar .btn');
+const pdfModal = document.getElementById('pdfModal');
+const closeBtn = document.querySelector('.close-btn');
+
+if (viewBtn && pdfModal && closeBtn) {
+  viewBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    pdfModal.style.display = 'block';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    pdfModal.style.display = 'none';
+  });
+
+  // Close modal if user clicks outside the box
+  window.addEventListener('click', (e) => {
+    if (e.target === pdfModal) {
+      pdfModal.style.display = 'none';
+    }
+  });
+}
+
+// dept pdf
+// ==============================
+// PDF Modal Logic (Calendar + Department)
+// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  const pdfModal = document.getElementById('pdfModal');
+  const pdfFrame = document.getElementById('pdfFrame');
+  const closeBtn = document.querySelector('.close-btn');
+
+  // Calendar View Button
+  const viewBtn = document.querySelector('.view-calendar .btn');
+  if (viewBtn) {
+    viewBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      pdfFrame.src = "files/calendar.pdf"; // replace with actual path
+      pdfModal.style.display = 'block';
+    });
+  }
+
+  // Department Buttons
+  const deptButtons = document.querySelectorAll('.visit-btn');
+  deptButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pdfUrl = btn.getAttribute('data-pdf');
+      pdfFrame.src = pdfUrl;
+      pdfModal.style.display = 'block';
+    });
+  });
+
+  // Close Modal
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      pdfModal.style.display = 'none';
+      pdfFrame.src = "";
+    });
+  }
+
+  // Close if clicked outside modal
+  window.addEventListener('click', (e) => {
+    if (e.target === pdfModal) {
+      pdfModal.style.display = 'none';
+      pdfFrame.src = "";
+    }
+  });
+});
+
+
+
