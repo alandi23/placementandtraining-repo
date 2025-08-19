@@ -239,6 +239,22 @@
   border-radius: 18px;
   max-width: 80%;
 }
+
+/* Chatbot input and send button border */
+#chatbot-input,
+.chatbot-send {
+  border: 2px solid skyblue;   /* sky blue border */
+  border-radius: 6px;          /* optional: rounded corners */
+  padding: 8px 12px;
+  outline: none;          
+}
+
+#chatbot-input:focus,
+.chatbot-send:hover {
+  border-color: deepskyblue;   /* darker sky blue on focus/hover */
+}
+
+
 .bot-message {
   background: #e3f2fd;
   color: #1565c0;
