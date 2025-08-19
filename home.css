@@ -63,7 +63,7 @@
   margin: 60px auto;
   text-align: center;
   padding: 30px;
-  background: #fbfff9b7;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -98,7 +98,7 @@
   flex-wrap: wrap;
 }
 .dept-card {
-  background: #f7f7ff;
+  background:linear-gradient(135deg, #fef6e4, #ffffff);
   padding: 20px;
   width: 300px;
   border-radius: 15px;
@@ -252,7 +252,7 @@
 .why-choose {
   text-align: center;
   padding: 50px 20px;
-  background: #f9f9f9;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
 }
 
 .section-title {

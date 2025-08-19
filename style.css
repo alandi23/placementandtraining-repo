@@ -163,7 +163,7 @@ body {
 }
 
 .student {
-  background: #f7f7ff;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
   border-radius: 20px;     /* card with rounded corners */
   padding: 20px;
   text-align: center;
@@ -238,7 +238,8 @@ body {
 .event-card {
   min-width: 250px;
   max-width: 300px;
-  background:   #f7f7ff;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
+}
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
