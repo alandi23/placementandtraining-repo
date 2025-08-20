@@ -35,7 +35,7 @@
   <!-- 🔹 Sidebar -->
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
-    <a href="statistics.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="companies.html">Facilites</a>
     <a href="training.html">Academics</a>
     <a href="training.html">Placement & training</a>
@@ -169,17 +169,26 @@
       <div class=
     </footer>
 
-     <!-- 🔹 Chatbot Widget -->
-<div id="chatbot">
-  <div class="chat-header">👩‍🎓 T&P Helper</div>
-  <div class="chat-body" id="chatBody">
-    <div class="bot-msg">Hello! I am your scholar guide. Ask me about training & placement! 😊</div>
+<!-- Chatbot -->
+  <div class="chatbot-container">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">
+      <span id="chatbot-icon">👩‍🎓</span>
+    </button>
+    <div class="chatbot-window" id="chatbot-window">
+      <div class="chatbot-header">
+        <span>👩‍🎓 Campus Assistant</span>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="message bot-message">
+          Hello! I'm your campus assistant. How can I help you today? You can ask me about admissions, facilities, courses, or anything else about Cummins College! 😊
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+        <button class="chatbot-send" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
   </div>
-  <div class="chat-footer">
-    <input type="text" id="chatInput" placeholder="Type a question..." />
-    <button onclick="sendChat()">Send</button>
-  </div>
-</div>
 
   <script src="main.js"></script>
 </body>
