@@ -1,0 +1,147 @@
+  /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔹 College Header Section */
+.college-header {
+  position: absolute;   /* fixes it on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);   /* white background */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;        /* stays above everything */
+}
+
+
+/* 🔹 College Logo */
+.college-header img {
+  height: 80px;      /* adjust size as needed */
+  margin-right: 20px;
+}
+
+/* 🔹 College Text */
+.college-text {
+  text-align: center;
+}
+
+.college-text h1 {
+  font-size: 22px;
+  color: #003366;
+  margin: 0;
+}
+
+.college-text h2 {
+  font-size: 16px;
+  color: #444;
+  margin: 5px 0 0 0;
+  font-weight: normal;
+}
+
+
+/* 🔹 Adjust login box to move below header */
+.login-box {
+  margin-top: 150px;   /* pushes login box below banner */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.college-logo {
+  height: 80px;
+}
+
+.college-text .top-small {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+}
+
+.college-text .college-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #003366;
+  margin: 5px 0;
+}
+
+.college-text .sub-info {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.login-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 350px;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #444;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2575fc;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #1a5cd8;
+}
+
+#message {
+  margin-top: 15px;
+  font-size: 14px;
+}

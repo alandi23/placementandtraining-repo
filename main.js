@@ -171,5 +171,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// 🔹 Login button click effect
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.querySelector(".login-link");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", (e) => {
+      loginBtn.classList.add("clicked");
+      setTimeout(() => {
+        loginBtn.classList.remove("clicked");
+      }, 300);
+    });
+  }
+});
+
 
 
