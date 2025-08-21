@@ -22,7 +22,7 @@ body {
 }
 
 .college-logo {
-  height: 80px;
+  height: 100px;
 }
 
 .college-text .top-small {
@@ -158,13 +158,24 @@ body {
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 h2 { color: #2c3e50; margin-bottom: 15px; }
-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 th, td {
   border: 1px solid #ddd; padding: 12px; text-align: center;
 }
-th { background: #92a8d1; color: white; }
-tr:nth-child(even) { background: #f4f8ff; }
+th { background: #d8d2d1; color: rgb(0, 0, 0); }
 
+
+.table tr:nth-child(even) {
+  background: #f8edeb;  /* 🔹 Changed: off-white even rows */
+}
+
+.table tr:nth-child(odd) {
+  background: #fefae0;  /* 🔹 Changed: pastel green odd rows */
+}
+.table tr:hover {
+  background: #e9edc9;
+  transition: 0.3s;
+}
 .visit-btn {
   background: #7db9b6;
   border: none;
