@@ -123,31 +123,49 @@ body {
 /* Carousel */
 .carousel {
   width: 100%;
-  overflow: hidden;
-  position: relative;
-  height: 350px;
-}
-.slides {
+  height: 800px;   /* increased height */
   display: flex;
-  width: 500%;
-  animation: slide 18s infinite;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+  overflow: hidden;
 }
-.slides img {
+
+.slides {
   width: 100%;
-  height: 350px;
+  height: 100%;
+  text-align: center;   /* centers inline-block elements */
+}
+
+.slides img {
+  width: 90%;
+  max-height: 800px;
   object-fit: cover;
+  border-radius: 8px;
+  display: none;        /* hide all initially */
+  margin: 0 auto;       /* horizontal center */
 }
-@keyframes slide {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(0); }
-  25% { transform: translateX(-100%); }
-  45% { transform: translateX(-100%); }
-  50% { transform: translateX(-200%); }
-  70% { transform: translateX(-200%); }
-  75% { transform: translateX(-300%); }
-  95% { transform: translateX(-300%); }
-  100% { transform: translateX(-400%); }
+.slides img.active {
+  display: block;       /* show only active */
 }
+
+/* Prev/Next Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  padding: 8px;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border-radius: 50%;
+  user-select: none;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
 
 /* Tables */
 .table-section {

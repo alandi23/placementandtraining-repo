@@ -8,6 +8,34 @@ function closeSidebar() {
   document.getElementById("sidebar").style.width = "0";
 }
 
+/* ==============================
+   Carousel Functions
+============================== */
+let slideIndex = 0;
+let slides = document.querySelectorAll(".slides img");
+
+function showSlides() {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].classList.add("active");
+  setTimeout(showSlides, 3000); // Change every 3s
+}
+
+function plusSlides(n) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slideIndex += n;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  if (slideIndex < 1) { slideIndex = slides.length }
+  slides[slideIndex - 1].classList.add("active");
+}
+
+showSlides();
+
+
+
+
+
 // Chart.js script for placement graph
 const ctx = document.getElementById('placementChart').getContext('2d');
 
