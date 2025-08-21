@@ -11,6 +11,7 @@ body {
   text-align: center;
   padding: 10px;
   border-bottom: 2px solid #0047ab;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
 }
 
 .header-container {
@@ -57,7 +58,7 @@ h2 {
 }
 /*navbar*/
 .navbar {
-  background: #0047ab; /* solid blue bar */
+  background: linear-gradient(135deg, #2980b9, #3498db); /* solid blue bar */
   padding: 12px 0;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);

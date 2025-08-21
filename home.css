@@ -62,11 +62,7 @@
   max-width: 2000px;
   margin: 80px auto;
   padding: 30px;
-<<<<<<< HEAD
-  background: #fdf6e3;
-=======
   background: linear-gradient(135deg, #fef6e4, #ffffff);
->>>>>>> 4e793e79fa852816e4ffc82003ffe7afa5973b05
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
