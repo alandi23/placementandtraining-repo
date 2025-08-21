@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -24,152 +24,134 @@
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
     <a href="index.html">Home</a>
-    <a href="companies.html">Facilites</a>
+    <a href="companies.html">Facilities</a>
     <a href="training.html">Academics</a>
-    <a href="training.html">Placement & training</a>
-    <a href="training.html">Alumini</a>
-    
+    <a href="training.html">Placement & Training</a>
+    <a href="training.html">Alumni</a>
   </div>
   <span class="openbtn" onclick="openSidebar()">☰ Menu</span>
 
-   <!-- 🔹 Navigation Bar -->
+  <!-- 🔹 Navigation Bar -->
   <nav class="navbar">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="statistics.html">Placement Statistics</a></li>
-        <li><a href="companies.html">Our Recruiters</a></li>
-        <li><a href="placed-students.html">Placed Students</a></li>
-        <li><a href="placement-flow.html">Placement Process</a></li>
+      <li><a href="companies.html">Our Recruiters</a></li>
+      <li><a href="placed-students.html">Placed Students</a></li>
+      <li><a href="placement-flow.html">Placement Process</a></li>
     </ul>
   </nav>
-  
-  <header>
-    <h1>Our Recruiters</h1>
-  </header>
 
-  <!-- Recruiters Section -->
-   <marquee >
-  <section class="recruiters">
-    <h2>Top Recruiters</h2>
-    <div class="company-list">
-      <div class="company-card" onclick="showCompanyInfo('tcs')">
-        <img src="tcs.png" alt="TCS Logo">
-        <p>TCS</p>
-      </div>
-      <div class="company-card" onclick="showCompanyInfo('infosys')">
-        <img src="infosys.png" alt="Infosys Logo">
-        <p>Infosys</p>
-      </div>
-      <div class="company-card" onclick="showCompanyInfo('amazon')">
-        <img src="amazon.png" alt="Amazon Logo">
-        <p>Amazon</p>
-      </div>
-    </div>
-  </section>
-  </marquee>
-
-  <!-- Info Modal -->
-  <div id="company-info" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="company-name"></h3>
-      <p id="company-details"></p>
-    </div>
-  </div>
-
-  <!-- Placements Section -->
-  <section class="placements">
-    <h2>Student Placements</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Student Name</th>
-          <th>Department</th>
-          <th>Company</th>
-          <th>CTC (LPA)</th>
-          <th>Review</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Aditi Sharma</td>
-          <td>Computer Engineering</td>
-          <td>TCS</td>
-          <td>6.5</td>
-          <td><a href="#" onclick="showReview('Aditi Sharma','Great training and work culture at TCS!')">Review</a></td>
-        </tr>
-        <tr>
-          <td>Rahul Mehta</td>
-          <td>Mechanical</td>
-          <td>Infosys</td>
-          <td>5.2</td>
-          <td><a href="#" onclick="showReview('Rahul Mehta','Infosys gave me a great platform to start my career.')">Review</a></td>
-        </tr>
-        <tr>
-          <td>Priya Deshmukh</td>
-          <td>Electronics</td>
-          <td>Amazon</td>
-          <td>20.0</td>
-          <td><a href="#" onclick="showReview('Priya Deshmukh','Amazon is challenging but provides great growth!')">Review</a></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- 🔹 Recruiters Image Section -->
+  <section class="recruiters-banner">
+    <img src="recuirtors.jpg" alt="Our Recruiters" class="recruiters-img">
   </section>
 
-  <!-- Review Modal -->
-  <div id="review-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeReview()">&times;</span>
-      <h3 id="review-student"></h3>
-      <p id="review-text"></p>
+  <!-- 🔹 Recruiters Placement Table -->
+  <section class="recruiters-table-section">
+    <h2>Companies Considered Our Students for On-Campus Placement</h2>
+    <div class="table-container">
+      <table class="recruiters-table">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Package</th>
+            <th>Students Placed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Palo Alto Networks</td><td>54.75 LPA</td><td>3</td></tr>
+          <tr><td>Intuit India Product Development Center Pvt. Ltd.</td><td>39.25 LPA</td><td>2</td></tr>
+          <tr><td>Paypal</td><td>34.40 LPA</td><td>4</td></tr>
+          <tr><td>PhonePe Pvt Ltd</td><td>33.14 LPA</td><td>5</td></tr>
+          <tr><td>Providence Global Center</td><td>27 LPA</td><td>3</td></tr>
+          <tr><td>Cisco</td><td>24.73 LPA</td><td>6</td></tr>
+          <tr><td>Tesco</td><td>20.77 LPA</td><td>4</td></tr>
+          <tr><td>Deutsche India Private Limited</td><td>19.63 LPA</td><td>3</td></tr>
+          <tr><td>BrowserStack</td><td>19.91 LPA</td><td>2</td></tr>
+          <tr><td>Nike India Technology</td><td>15.16 LPA</td><td>3</td></tr>
+          <tr><td>GSK</td><td>15 LPA</td><td>2</td></tr>
+          <tr><td>Gartner</td><td>12.19 LPA</td><td>3</td></tr>
+          <tr><td>Blueflame Labs</td><td>12–15 LPA</td><td>4</td></tr>
+          <tr><td>Citi</td><td>12 LPA</td><td>3</td></tr>
+          <tr><td>McKinsey & Co.</td><td>12 LPA</td><td>2</td></tr>
+          <tr><td>Amadeus</td><td>11.77 LPA</td><td>3</td></tr>
+          <tr><td>PepsiCo GBS</td><td>10.77 LPA</td><td>4</td></tr>
+          <tr><td>Caterpillar</td><td>10.7 LPA</td><td>5</td></tr>
+          <tr><td>Publicis Sapient</td><td>10.47 LPA</td><td>3</td></tr>
+          <tr><td>Applied Materials</td><td>9.67 LPA</td><td>4</td></tr>
+          <tr><td>HSBC</td><td>9 LPA</td><td>6</td></tr>
+          <tr><td>Dover India Pvt. Ltd.</td><td>9 LPA</td><td>2</td></tr>
+          <tr><td>Cummins India Limited</td><td>8.15 LPA</td><td>7</td></tr>
+          <tr><td>Principal Global</td><td>8 LPA</td><td>3</td></tr>
+          <tr><td>ConsultAdd</td><td>7–12 LPA</td><td>4</td></tr>
+          <tr><td>Eaton</td><td>7.9 LPA</td><td>3</td></tr>
+          <tr><td>TATA Communication</td><td>7.7 LPA</td><td>5</td></tr>
+          <tr><td>MG Motor</td><td>7 LPA</td><td>2</td></tr>
+          <tr><td>Wirtgen Group – A John Deere Company</td><td>7 LPA</td><td>3</td></tr>
+          <tr><td>TechnipFMC</td><td>6.34 LPA</td><td>2</td></tr>
+          <tr><td>Technip Energies</td><td>6.2 LPA</td><td>3</td></tr>
+          <tr><td>Vertiv</td><td>6 LPA</td><td>2</td></tr>
+          <tr><td>Accolite Digital</td><td>6 LPA</td><td>4</td></tr>
+          <tr><td>Kennametal India Limited</td><td>5.75 LPA</td><td>2</td></tr>
+          <tr><td>Kohler</td><td>5.50 LPA</td><td>3</td></tr>
+          <tr><td>Tech Mahindra</td><td>5.5 LPA</td><td>7</td></tr>
+          <tr><td>Infocepts</td><td>5 LPA</td><td>6</td></tr>
+          <tr><td>Siemens</td><td>5 LPA</td><td>5</td></tr>
+          <tr><td>KonvergeAI</td><td>4.6 LPA</td><td>3</td></tr>
+          <tr><td>KPIT</td><td>4.5 LPA</td><td>8</td></tr>
+          <tr><td>ifm Engineering Pvt. Ltd.</td><td>4.5 LPA</td><td>2</td></tr>
+          <tr><td>HCL Technologies</td><td>4.5 LPA</td><td>9</td></tr>
+          <tr><td>Capgemini</td><td>4.25 LPA</td><td>12</td></tr>
+          <tr><td>DXC</td><td>4.20 LPA</td><td>7</td></tr>
+          <tr><td>Novatech Software Pvt. Ltd.</td><td>3–6 LPA</td><td>3</td></tr>
+          <tr><td>Wipro</td><td>3.5 LPA</td><td>10</td></tr>
+          <tr><td>Infosys</td><td>3.6 LPA</td><td>11</td></tr>
+          <tr><td>TCS</td><td>3.36 LPA</td><td>15</td></tr>
+          <tr><td>NEEYAMO</td><td>3 LPA</td><td>4</td></tr>
+          <tr><td>Persistent Systems</td><td>5.01 LPA</td><td>8</td></tr>
+          <tr><td>KPIT-Vehicle Engineering and Design</td><td>4.5 LPA</td><td>6</td></tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+  </section>
 
-   <!-- Footer Section -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Important Links -->
-    <div class="footer-col">
-      <h3>Important Links</h3>
-      <ul>
-        <li><a href="#">Newsletters</a></li>
-        <li><a href="#">AICTE EoA & LoI</a></li>
-        <li><a href="#">RTMNU Affiliation</a></li>
-        <li><a href="#">NIRF Reports</a></li>
-        <li><a href="#">Mandatory Disclosures</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <ul>
+          <li><a href="#">Newsletters</a></li>
+          <li><a href="#">AICTE EoA & LoI</a></li>
+          <li><a href="#">RTMNU Affiliation</a></li>
+          <li><a href="#">NIRF Reports</a></li>
+          <li><a href="#">Mandatory Disclosures</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📞 +91 9420410225</p>
+        <p>📞 +91 8055935567</p>
+        <p>📞 +91 7768929237</p>
+        <p>📞 +91 8422008886</p>
+        <p>✉️ office@cumminscollege.edu.in</p>
+      </div>
+      <div class="footer-col">
+        <h3>City Office</h3>
+        <p>Maharshi Karve Stree Shikshan Samstha's</p>
+        <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
+        <p>Nagpur - 440015</p>
+      </div>
+      <div class="footer-col">
+        <h3>Institute Address</h3>
+        <p>Mouje Sukli (Gupchup), Hingna, Nagpur - 441110</p>
+      </div>
     </div>
+  </footer>
 
-    <!-- Contact -->
-    <div class="footer-col">
-      <h3>Contact Us</h3>
-      <p>📞 +91 9420410225</p>
-      <p>📞 +91 8055935567</p>
-      <p>📞 +91 7768929237</p>
-      <p>📞 +91 8422008886</p>
-      <p>✉️ office@cumminscollege.edu.in</p>
-    </div>
-
-    <!-- City Office -->
-    <div class="footer-col">
-      <h3>City Office</h3>
-      <p>Maharshi Karve Stree Shikshan Samstha's</p>
-      <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
-      <p>Nagpur - 440015</p>
-    </div>
-
-    <!-- Address & Social -->
-    <div class="footer-col">
-      <h3>Institute Address</h3>
-      <p>Mouje Sukli (Gupchup), Hingna, Nagpur - 441110</p>
-
-      <h3>Social Connect</h3>
-      <div class=
-    </footer>
-
-<!-- Chatbot -->
+  <!-- Chatbot -->
   <div class="chatbot-container">
     <button class="chatbot-toggle" onclick="toggleChatbot()">
       <span id="chatbot-icon">👩‍🎓</span>
@@ -189,7 +171,6 @@
       </div>
     </div>
   </div>    
-
 
   <script src="companies.js"></script>
 </body>

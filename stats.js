@@ -15,7 +15,8 @@ const placementChart = new Chart(ctx, {
         '#6BCB77',  // Green
         '#4D96FF'   // Blue
       ],
-      borderRadius: 6
+      borderRadius: 6,
+      
     }]
   },
   options: {
@@ -37,6 +38,8 @@ const placementChart = new Chart(ctx, {
         }
       },
       x: {
+        barPercentage: 0.5,
+        categoryPercentage: 0.7,
         title: {
           display: true,
           text: 'Year'
