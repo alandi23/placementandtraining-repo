@@ -22,6 +22,15 @@
     </div>
   </header>
 
+  <!-- 🔹 Login Icon -->
+<div class="login-container">
+  <a href="login.html" class="login-link">
+    <span class="login-icon">👤</span> 
+    <span class="login-text">Login</span>
+  </a>
+</div>
+
+
   <!-- 🔹 Navigation Bar -->
   <nav class="navbar">
     <ul class="nav-links">
@@ -53,14 +62,43 @@
         <img src="mkkk.png" alt="Slide 1">
       </div>
       <div class="slides">
-        <img src="events.jpeg" alt="Slide 2">
+        <img src="event5.jpg" alt="Slide 2">
       </div>
       <div class="slides">
-        <img src="campus.jpeg" alt="Slide 3">
+        <img src="campus.jpg" alt="Slide 3">
       </div>
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
   </section>
+
+<!--to placed student-->
+<h2 class="placements-title">Top Engineering Placements</h2>
+
+<div class="placements">
+  <div class="student">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rohan Sharma">
+    <h3>Rohan Sharma</h3>
+    <p>B.Tech. CSE</p>
+    <p class="package">Package: <span>24 Lakh</span></p>
+  </div>
+
+  <div class="student">
+    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Neha Verma">
+    <h3>Neha Verma</h3>
+    <p>B.Tech. IT</p>
+    <p class="package">Package: <span>22 Lakh</span></p>
+  </div>
+
+  <div class="student">
+    <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Aditya Singh">
+    <h3>Aditya Singh</h3>
+    <p>B.Tech. CSE</p>
+    <p class="package">Package: <span>18 Lakh</span></p>
+  </div>
+</div>
+
+
+
   <!-- 🔹 Hero Section -->
   
     <div class="about">
@@ -103,7 +141,7 @@
         <h3>B. Tech. Computer Engineering</h3>
         <p><strong>DTE Code:</strong> 430424550F</p>
         <p><strong>Intake:</strong> 120 + 12 (DSE)</p>
-        <a href="#" class="dept-btn">Visit Department</a>
+        <a href="#" class="visit-btn" data-pdf="pdfs/computer.pdf">Visit Department</a>
       </div>
        <!-- Card 2 -->
       <div class="dept-card">
@@ -111,7 +149,8 @@
         <h3>B. Tech. Mechanical Engineering</h3>
         <p><strong>DTE Code:</strong> 430461250F</p>
         <p><strong>Intake:</strong> 60 + 6 (DSE)</p>
-        <a href="#" class="dept-btn">Visit Department</a>
+        <a href="#" class="visit-btn" data-pdf="pdfs/mechanical.pdf">Visit Department</a>
+
       </div>
       <!-- Card 3 -->
       <div class="dept-card">
@@ -119,10 +158,79 @@
         <h3>B. Tech. & Telecommunications</h3>
         <p><strong>DTE Code:</strong> 430437250F</p>
         <p><strong>Intake:</strong> 60 + 6 (DSE)</p>
-        <a href="#" class="dept-btn">Visit Department</a>
+        <a href="#" class="visit-btn" data-pdf="pdfs/telecom.pdf">Visit Department</a>
       </div>
     </div>
   </section>
+
+
+  <section class="events-calendar">
+  <h2>Events Calendar</h2>
+  <div class="events-container">
+    <button class="event-nav prev">&#10094;</button>
+    <div class="events-wrapper">
+      <div class="event-card">
+        <p class="event-date">14 Aug 2025</p>
+        <h3>Partition Horrors Remembrance Day</h3>
+      </div>
+      <div class="event-card">
+        <p class="event-date">13 Aug 2025</p>
+        <h3>Institute Lecture on "Joy of Discovery in the Modern Era : Some Reflections and Directions"</h3>
+      </div>
+      <div class="event-card">
+        <p class="event-date">12 Aug 2025</p>
+        <h3>National Librarian's Day</h3>
+      </div>
+    </div>
+    <button class="event-nav next">&#10095;</button>
+  </div>
+  <div class="view-calendar">
+  <button onclick="openPDF()" class="btn">View Event Calendar</button>
+</div>
+
+<!-- PDF Modal -->
+<div id="pdfModal" class="pdf-modal">
+  <div class="pdf-content">
+    <span class="close-btn" onclick="closePDF()">×</span>
+    <iframe src="calendar.pdf"></iframe>
+  </div>
+</div>
+</section>
+
+<!--why choose-->
+<section class="why-choose">
+  <div class="container">
+    <h2 class="section-title">Why Choose CCOEW</h2>
+    <p class="section-subtitle">CCOEW has been instrumental in fostering innovation, leadership, and excellence in engineering education.</p>
+
+    <div class="choose-cards">
+      
+      <!-- Card 1 -->
+      <div class="choose-card">
+        <img src="afford.jpg" alt="Affordability">
+        <h3>Affordability</h3>
+        <p>Our financial aid program makes CCOEW affordable for every family throughout the world.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="choose-card">
+        <img src="academic.jpg" alt="Academics">
+        <h3>Academics</h3>
+        <p>An education at CCOEW has limitless possibilities. Our courses are taught by esteemed faculty members.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="choose-card">
+        <img src="inspiringlife.jpg" alt="Student Life">
+        <h3>Inspiring Student Life</h3>
+        <p>Our residential system facilitates learning opportunities with peers and professors from diverse backgrounds.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
   <!-- 🔹 Footer -->
  <!-- Footer Section -->
@@ -189,6 +297,15 @@
       </div>
     </div>
   </div>
+  
+  
+  <div id="pdfModal" class="pdf-modal">
+  <div class="pdf-content">
+    <span class="close-btn">&times;</span>
+    <iframe id="pdfFrame" src="" width="100%" height="500px"></iframe>
+  </div>
+</div>
+
 
   <script src="main.js"></script>
 </body>

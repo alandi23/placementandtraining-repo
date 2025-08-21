@@ -62,7 +62,11 @@
   max-width: 2000px;
   margin: 80px auto;
   padding: 30px;
+<<<<<<< HEAD
   background: #fdf6e3;
+=======
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
+>>>>>>> 4e793e79fa852816e4ffc82003ffe7afa5973b05
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -127,7 +131,7 @@
   flex-wrap: wrap;
 }
 .dept-card {
-  background: #f7f7ff;
+  background:linear-gradient(135deg, #fef6e4, #ffffff);
   padding: 20px;
   width: 300px;
   border-radius: 15px;
@@ -169,6 +173,43 @@
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
  
+.pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+
+.pdf-content {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 50px auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pdf-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
 
 /* Chatbot Styles */
 .chatbot-container {
@@ -231,6 +272,22 @@
   border-radius: 18px;
   max-width: 80%;
 }
+
+/* Chatbot input and send button border */
+#chatbot-input,
+.chatbot-send {
+  border: 2px solid skyblue;   /* sky blue border */
+  border-radius: 6px;          /* optional: rounded corners */
+  padding: 8px 12px;
+  outline: none;          
+}
+
+#chatbot-input:focus,
+.chatbot-send:hover {
+  border-color: deepskyblue;   /* darker sky blue on focus/hover */
+}
+
+
 .bot-message {
   background: #e3f2fd;
   color: #1565c0;
@@ -239,6 +296,63 @@
   background: #3498db;
   color: white;
   margin-left: auto;
+}
+/*why choose*/
+.why-choose {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.choose-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.choose-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.choose-card:hover {
+  transform: translateY(-10px);
+}
+
+.choose-card img {
+  width: 100%;
+  height: 180px;   /* fixed size for uniform look */
+  object-fit: cover; /* makes images look neat */
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.choose-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.choose-card p {
+  font-size: 14px;
+  color: #555;
 }
 
 
