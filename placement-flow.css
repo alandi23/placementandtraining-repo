@@ -4,60 +4,83 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* 🔹 College Header Section */
+/* heading*/
 .college-header {
-    text-align: center;
-    padding: 10px;
-    border-bottom: 2px solid #0047ab;
-    background: linear-gradient(135deg, #fef6e4, #ffffff);
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #0047ab;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
 }
 
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .college-logo {
-    height: 80px;
+  height: 80px;
 }
 
 .college-text .top-small {
-    font-size: 14px;
-    color: #444;
-    margin: 0;
+  font-size: 14px;
+  color: #444;
+  margin: 0;
 }
 
 .college-text .college-name {
-    font-size: 22px;
-    font-weight: bold;
-    color: #003366;
-    margin: 5px 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #003366;
+  margin: 5px 0;
 }
 
 .college-text .sub-info {
-    font-size: 13px;
-    color: #666;
-    margin: 0;
+  font-size: 13px;
+  color: #666;
+  margin: 0;
 }
 
-.step-card {
-    transition: all 0.3s ease;
+/* 🔹 Login Button/Icon */
+.login-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-.step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.login-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 25px;
+  background:linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
-.timeline-line {
-    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+.login-link:hover {
+  background: #0066cc;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
 }
 
-.fade-in {
-    animation: fadeIn 0.6s ease-in-out;
+.login-icon {
+  font-size: 18px;
 }
+
+.login-text {
+  font-size: 15px;
+}
+
+.login-link.clicked {
+  transform: scale(0.95);
+  background: #003366;
+}
+
 
 /*navbar*/
 .navbar {

@@ -77,13 +77,12 @@ h1, h2 {
 
 
 
-/* 🔹 College Header Section */
+/* heading*/
 .college-header {
-  background: whitesmoke;
   text-align: center;
   padding: 10px;
   border-bottom: 2px solid #0047ab;
-  background:linear-gradient(135deg, #fef6e4, #ffffff);
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
 }
 
 .header-container {
@@ -115,6 +114,46 @@ h1, h2 {
   color: #666;
   margin: 0;
 }
+
+/* 🔹 Login Button/Icon */
+.login-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.login-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 25px;
+  background:linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.login-link:hover {
+  background: #0066cc;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.login-icon {
+  font-size: 18px;
+}
+
+.login-text {
+  font-size: 15px;
+}
+
+.login-link.clicked {
+  transform: scale(0.95);
+  background: #003366;
+}
+
 
 /*navbar*/
 .navbar {
