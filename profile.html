@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile - Training & Placement Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fef6e4, #ffffff);
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .profile-main {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-name {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .career-objective {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #555;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .resume-upload-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px dashed #3498db;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .resume-upload-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .resume-upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+            background: linear-gradient(135deg, #2980b9, #1f5f99);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .uploaded-file {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .score-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .score-value {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #2980b9, #1f5f99);
+        }
+
+        .project-item, .experience-item, .cert-item {
+            padding: 1.5rem;
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cert-upload {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-upload-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .cert-upload-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f5f99);
+            transform: scale(1.1);
+        }
+
+        .cert-status {
+            font-size: 0.8rem;
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .project-item:hover, .experience-item:hover, .cert-item:hover {
+            background: #e9ecef;
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-title, .experience-title, .cert-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .project-desc, .experience-desc, .cert-desc {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .project-type {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .language-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .language-tag {
+            background: white;
+            color: #3498db;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            border: 2px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .language-tag:hover {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .interest-list, .soft-skills-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .interest-item, .soft-skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .interest-item:hover, .soft-skill-item:hover {
+            background: #e9ecef;
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .achievement-item:hover {
+            background: #e9ecef;
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .achievement-content {
+            flex: 1;
+        }
+
+        .achievement-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .achievement-desc {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .profile-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-name {
+                font-size: 2.2rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>Training & Placement Portal</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#">Edit</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header fade-in">
+            <div class="profile-main">
+                <div class="profile-photo pulse">
+                    AP
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">Arjun Patel</h1>
+                    <p class="profile-title">Computer Science & Engineering • Batch 2024</p>
+                    
+                    <div class="career-objective">
+                        <strong>Career Objective:</strong> Passionate software engineer seeking to leverage technical expertise and innovative thinking to contribute to cutting-edge technology solutions in a dynamic and growth-oriented organization.
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>Email: arjun.patel@email.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>Phone: +91 9876543210</span>
+                        </div>
+                        <div class="contact-item">
+                            <a href="#" style="color: #2c3e50; text-decoration: none;">LinkedIn: linkedin.com/in/arjunpatel</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="#" style="color: #2c3e50; text-decoration: none;">GitHub: github.com/arjunpatel</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-upload-section">
+                        <h4 style="margin-bottom: 1rem; color: #2c3e50;">Resume Upload</h4>
+                        <input type="file" id="resumeFile" class="file-input" accept=".pdf" onchange="handleFileUpload(event)">
+                        <button class="resume-upload-btn" onclick="document.getElementById('resumeFile').click()">
+                            Upload Resume (PDF)
+                        </button>
+                        <div class="uploaded-file" id="uploadedFile">
+                            <span id="fileName"></span>
+                            <button onclick="removeFile()" style="background: none; border: none; color: #e74c3c; cursor: pointer;">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Performance & Basic Info -->
+        <div class="grid grid-2">
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Academic Performance
+                </h3>
+                <div class="score-grid">
+                    <div class="score-item">
+                        <span>B.Tech CGPA</span>
+                        <span class="score-value">8.7/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span>12th Aggregate</span>
+                        <span class="score-value">93.5%</span>
+                    </div>
+                    <div class="score-item">
+                        <span>10th Aggregate</span>
+                        <span class="score-value">95.8%</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Current Backlogs</span>
+                        <span class="score-value" style="color: #27ae60;">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span>History of Backlogs</span>
+                        <span class="score-value">1 (Cleared)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Personal Information
+                </h3>
+                <div class="score-grid">
+                    <div class="score-item">
+                        <span>Department</span>
+                        <span class="score-value">Computer Science & Engineering</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Batch</span>
+                        <span class="score-value">2024</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Year Gap</span>
+                        <span class="score-value" style="color: #27ae60;">No Gap</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Languages Known</span>
+                        <div class="language-tags">
+                            <span class="language-tag">English</span>
+                            <span class="language-tag">Hindi</span>
+                            <span class="language-tag">Marathi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="card fade-in">
+            <h3 class="card-title">
+                Technical Skills
+            </h3>
+            <div class="skills-container">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Data Structures</span>
+                <span class="skill-tag">Algorithms</span>
+            </div>
+        </div>
+
+        <!-- Projects & Experience -->
+        <div class="grid grid-2">
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Projects
+                </h3>
+                <div class="project-item">
+                    <div class="project-title">Smart Campus Management System</div>
+                    <div class="project-desc">Comprehensive web application for managing student records, attendance, and academic activities</div>
+                    <span class="project-type">Major Project</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Online Banking System</div>
+                    <div class="project-desc">Secure banking application with transaction management and user authentication</div>
+                    <span class="project-type">Mini Project</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Task Management Dashboard</div>
+                    <div class="project-desc">React-based productivity tool with real-time collaboration features</div>
+                    <span class="project-type">Personal Project</span>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Internships & Training
+                </h3>
+                <div class="experience-item">
+                    <div class="experience-title">Full Stack Developer Intern</div>
+                    <div class="experience-desc">InnovateTech Solutions • May 2023 - July 2023</div>
+                    <div class="experience-desc">Developed responsive web applications using MERN stack and implemented RESTful APIs</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Machine Learning Training</div>
+                    <div class="experience-desc">AI Academy Institute • January 2023 - March 2023</div>
+                    <div class="experience-desc">Comprehensive training in ML algorithms, data preprocessing, and model deployment</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Cloud Computing Workshop</div>
+                    <div class="experience-desc">AWS Training Center • December 2022</div>
+                    <div class="experience-desc">Hands-on experience with AWS services and cloud architecture principles</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications & Achievements -->
+        <div class="grid grid-2">
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Certifications
+                </h3>
+                <div class="cert-item">
+                    <div class="cert-header">
+                        <div>
+                            <div class="cert-title">AWS Certified Solutions Architect</div>
+                            <div class="cert-desc">Amazon Web Services • Valid until December 2025</div>
+                        </div>
+                        <div class="cert-upload">
+                            <input type="file" id="cert1" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert1-status')">
+                            <button class="cert-upload-btn" onclick="document.getElementById('cert1').click()">
+                                PDF
+                            </button>
+                            <span class="cert-status" id="cert1-status"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-header">
+                        <div>
+                            <div class="cert-title">Oracle Certified Java Professional</div>
+                            <div class="cert-desc">Oracle Corporation • Valid until August 2025</div>
+                        </div>
+                        <div class="cert-upload">
+                            <input type="file" id="cert2" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert2-status')">
+                            <button class="cert-upload-btn" onclick="document.getElementById('cert2').click()">
+                                PDF
+                            </button>
+                            <span class="cert-status" id="cert2-status"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-header">
+                        <div>
+                            <div class="cert-title">Google Cloud Professional Developer</div>
+                            <div class="cert-desc">Google Cloud Platform • Valid until June 2025</div>
+                        </div>
+                        <div class="cert-upload">
+                            <input type="file" id="cert3" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert3-status')">
+                            <button class="cert-upload-btn" onclick="document.getElementById('cert3').click()">
+                                PDF
+                            </button>
+                            <span class="cert-status" id="cert3-status"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-header">
+                        <div>
+                            <div class="cert-title">MongoDB Certified Developer</div>
+                            <div class="cert-desc">MongoDB University • Completed November 2023</div>
+                        </div>
+                        <div class="cert-upload">
+                            <input type="file" id="cert4" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert4-status')">
+                            <button class="cert-upload-btn" onclick="document.getElementById('cert4').click()">
+                                PDF
+                            </button>
+                            <span class="cert-status" id="cert4-status"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Achievements & Competitions
+                </h3>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Winner - National Coding Championship 2023</div>
+                        <div class="achievement-desc">Secured 1st position among 5000+ participants</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Best Innovation Award</div>
+                        <div class="achievement-desc">College Technical Symposium 2023</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Dean's List Academic Excellence</div>
+                        <div class="achievement-desc">Consecutive 4 semesters (2022-2024)</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Hackathon Runner-up</div>
+                        <div class="achievement-desc">Smart India Hackathon 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Areas of Interest, Soft Skills, Extra-Curricular -->
+        <div class="grid grid-3">
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Areas of Interest
+                </h3>
+                <div class="interest-list">
+                    <div class="interest-item">
+                        <span>Artificial Intelligence</span>
+                    </div>
+                    <div class="interest-item">
+                        <span>Full Stack Development</span>
+                    </div>
+                    <div class="interest-item">
+                        <span>Cloud Computing</span>
+                    </div>
+                    <div class="interest-item">
+                        <span>Data Science</span>
+                    </div>
+                    <div class="interest-item">
+                        <span>Mobile Development</span>
+                    </div>
+                    <div class="interest-item">
+                        <span>Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Soft Skills
+                </h3>
+                <div class="soft-skills-list">
+                    <div class="soft-skill-item">
+                        <span>Leadership</span>
+                    </div>
+                    <div class="soft-skill-item">
+                        <span>Team Collaboration</span>
+                    </div>
+                    <div class="soft-skill-item">
+                        <span>Problem Solving</span>
+                    </div>
+                    <div class="soft-skill-item">
+                        <span>Communication</span>
+                    </div>
+                    <div class="soft-skill-item">
+                        <span>Time Management</span>
+                    </div>
+                    <div class="soft-skill-item">
+                        <span>Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3 class="card-title">
+                    Extra-Curricular Activities
+                </h3>
+                <div class="experience-item">
+                    <div class="experience-title">Student Council President</div>
+                    <div class="experience-desc">Led student body of 2000+ members and organized major college events</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Coding Club Coordinator</div>
+                    <div class="experience-desc">Mentored junior students and conducted programming workshops</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Community Service Volunteer</div>
+                    <div class="experience-desc">Teaching computer literacy to underprivileged children</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Sports Team Captain</div>
+                    <div class="experience-desc">Led college cricket team to inter-university championship</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards & Recognitions -->
+        <div class="card fade-in">
+            <h3 class="card-title">
+                Awards & Recognitions
+            </h3>
+            <div class="grid grid-2">
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Outstanding Student of the Year 2023</div>
+                        <div class="achievement-desc">Recognized for academic excellence and leadership qualities</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Best Technical Paper Presentation</div>
+                        <div class="achievement-desc">National Conference on Emerging Technologies</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Excellence in Community Service</div>
+                        <div class="achievement-desc">Recognized by local government for social initiatives</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-content">
+                        <div class="achievement-title">Scholarship Recipient</div>
+                        <div class="achievement-desc">Merit-based scholarship for academic performance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Resume upload functionality
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                const uploadedFile = document.getElementById('uploadedFile');
+                const fileName = document.getElementById('fileName');
+                
+                fileName.textContent = file.name;
+                uploadedFile.style.display = 'flex';
+                
+                // Update button text
+                const uploadBtn = document.querySelector('.resume-upload-btn');
+                uploadBtn.innerHTML = 'Resume Uploaded';
+                uploadBtn.style.background = '#27ae60';
+                
+                // Show success animation
+                uploadedFile.style.animation = 'pulse 1s ease-in-out';
+            } else {
+                alert('Please upload a PDF file only.');
+                event.target.value = '';
+            }
+        }
+
+        // Certificate upload functionality
+        function handleCertUpload(event, statusId) {
+            const file = event.target.files[0];
+            const statusElement = document.getElementById(statusId);
+            const button = event.target.parentElement.querySelector('.cert-upload-btn');
+            
+            if (file && file.type === 'application/pdf') {
+                statusElement.textContent = 'Uploaded';
+                button.innerHTML = 'Uploaded';
+                button.style.background = '#27ae60';
+                
+                // Add success animation
+                button.style.animation = 'pulse 0.5s ease-in-out';
+                setTimeout(() => {
+                    button.style.animation = '';
+                }, 500);
+            } else {
+                alert('Please upload a PDF file only.');
+                event.target.value = '';
+                statusElement.textContent = '';
+                button.innerHTML = 'PDF';
+                button.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
+            }
+        }
+
+        function removeFile() {
+            const uploadedFile = document.getElementById('uploadedFile');
+            const fileInput = document.getElementById('resumeFile');
+            const uploadBtn = document.querySelector('.resume-upload-btn');
+            
+            uploadedFile.style.display = 'none';
+            fileInput.value = '';
+            uploadBtn.innerHTML = 'Upload Resume (PDF)';
+            uploadBtn.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
+        }
+
+        // Skill tag interactive effects
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+            });
+        });
+
+        // Card click effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-8px) scale(1)';
+                }, 200);
+            });
+        });
+
+        // Professional links hover effects
+        document.querySelectorAll('.contact-item a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#495057';
+                this.style.textDecoration = 'underline';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '#2c3e50';
+                this.style.textDecoration = 'none';
+            });
+        });
+
+        // Add floating animation to profile photo
+        setInterval(() => {
+            const profilePhoto = document.querySelector('.profile-photo');
+            profilePhoto.style.transform = 'translateY(-5px)';
+            setTimeout(() => {
+                profilePhoto.style.transform = 'translateY(0px)';
+            }, 1000);
+        }, 3000);
+
+        // Initialize page
+        window.addEventListener('load', () => {
+            // Add staggered animation to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972c18a4428c856b',t:'MTc1NTc5OTkyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
