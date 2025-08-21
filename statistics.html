@@ -10,6 +10,7 @@
 </head>
 <body>
 
+  <!-- 🔹 College Header -->
   <header class="college-header">
     <div class="header-container">
       <img src="logo1.webp" alt="Cummins Logo" class="college-logo">
@@ -26,18 +27,80 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="statistics.html">Placement Statistics</a></li>
-        <li><a href="companies.html">Our Recruiters</a></li>
-        <li><a href="placed-students.html">Placed Students</a></li>
-        <li><a href="placement-flow.html">Placement Process</a></li>
+      <li><a href="companies.html">Our Recruiters</a></li>
+      <li><a href="placed-students.html">Placed Students</a></li>
+      <li><a href="placement-flow.html">Placement Process</a></li>
     </ul>
   </nav>
-  <!-- Graph Section -->
+
+  <!-- 🔹 Carousel -->
+  <section class="carousel">
+    <div class="slides">
+      <img src="img1.jpg" alt="Placement 1">
+      <img src="img2.jpg" alt="Placement 2">
+      <img src="img3.jpg" alt="Placement 3">
+      <img src="img4.jpg" alt="Placement 4">
+      <img src="img5.jpg" alt="Placement 5">
+    </div>
+  </section>
+
+  <!-- 🔹 Academic Year Table -->
+  <section class="table-section">
+    <h2>Academic Year Placement Reports</h2>
+    <table>
+      <tr>
+        <th>Sr. No</th>
+        <th>Academic Year</th>
+        <th>View Placements</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2020–2021</td>
+        <td><button class="visit-btn" data-pdf="pdfs/2020-21.pdf">View</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>2021–2022</td>
+        <td><button class="visit-btn" data-pdf="pdfs/2021-22.pdf">View</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>2022–2023</td>
+        <td><button class="visit-btn" data-pdf="pdfs/2022-23.pdf">View</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>2023–2024</td>
+        <td><button class="visit-btn" data-pdf="pdfs/2023-24.pdf">View</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>2024–2025</td>
+        <td><button class="visit-btn" data-pdf="pdfs/2024-25.pdf">View</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>2025–2026</td>
+        <td><button class="visit-btn" data-pdf="pdfs/2025-26.pdf">View</button></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- 🔹 PDF Modal -->
+  <div id="pdfModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <!-- 🔹 Graph Section -->
   <section class="graph-section">
     <h2>Year-wise Placement Trends</h2>
     <canvas id="placementChart"></canvas>
   </section>
 
-  <!-- Branch-wise Table -->
+  <!-- 🔹 Branch-wise Table -->
   <section class="table-section">
     <h2>Branch-wise Placement Data</h2>
     <table>
@@ -79,47 +142,46 @@
     </table>
   </section>
 
+  <!-- 🔹 Footer -->
   <footer class="footer">
-  <div class="footer-container">
-
-    <!-- Important Links -->
-    <div class="footer-col">
-      <h3>Important Links</h3>
-      <ul>
-        <li><a href="#">Newsletters</a></li>
-        <li><a href="#">AICTE EoA & LoI</a></li>
-        <li><a href="#">RTMNU Affiliation</a></li>
-        <li><a href="#">NIRF Reports</a></li>
-        <li><a href="#">Mandatory Disclosures</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <ul>
+          <li><a href="#">Newsletters</a></li>
+          <li><a href="#">AICTE EoA & LoI</a></li>
+          <li><a href="#">RTMNU Affiliation</a></li>
+          <li><a href="#">NIRF Reports</a></li>
+          <li><a href="#">Mandatory Disclosures</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📞 +91 9420410225</p>
+        <p>📞 +91 8055935567</p>
+        <p>📞 +91 7768929237</p>
+        <p>📞 +91 8422008886</p>
+        <p>✉️ office@cumminscollege.edu.in</p>
+      </div>
+      <div class="footer-col">
+        <h3>City Office</h3>
+        <p>Maharshi Karve Stree Shikshan Samstha's</p>
+        <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
+        <p>Nagpur - 440015</p>
+      </div>
+      <div class="footer-col">
+        <h3>Institute Address</h3>
+        <p>Mouje Sukli (Gupchup), Hingna, Nagpur - 441110</p>
+        <h3>Social Connect</h3>
+        <div class="social-icons">
+          <a href="#"><img src="fb.png" alt="Facebook"></a>
+          <a href="#"><img src="ig.png" alt="Instagram"></a>
+          <a href="#"><img src="ln.png" alt="LinkedIn"></a>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- Contact -->
-    <div class="footer-col">
-      <h3>Contact Us</h3>
-      <p>📞 +91 9420410225</p>
-      <p>📞 +91 8055935567</p>
-      <p>📞 +91 7768929237</p>
-      <p>📞 +91 8422008886</p>
-      <p>✉️ office@cumminscollege.edu.in</p>
-    </div>
-
-    <!-- City Office -->
-    <div class="footer-col">
-      <h3>City Office</h3>
-      <p>Maharshi Karve Stree Shikshan Samstha's</p>
-      <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
-      <p>Nagpur - 440015</p>
-    </div>
-
-    <!-- Address & Social -->
-    <div class="footer-col">
-      <h3>Institute Address</h3>
-      <p>Mouje Sukli (Gupchup), Hingna, Nagpur - 441110</p>
-
-      <h3>Social Connect</h3>
-      <div class=
-    </footer>
 </body>
 </html>

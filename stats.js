@@ -1,5 +1,4 @@
 // Chart.js script for placement graph
-
 const ctx = document.getElementById('placementChart').getContext('2d');
 
 const placementChart = new Chart(ctx, {
@@ -8,15 +7,9 @@ const placementChart = new Chart(ctx, {
     labels: ['2021', '2022', '2023', '2024'],
     datasets: [{
       label: 'Students Placed',
-      data: [30, 65, 66, 70], // Replace with real data
-      backgroundColor: [
-        '#FF6B6B',  // Red
-        '#FFD93D',  // Yellow
-        '#6BCB77',  // Green
-        '#4D96FF'   // Blue
-      ],
+      data: [30, 65, 66, 70], // Dummy Data
+      backgroundColor: ['#f9a1bc', '#f8d49d', '#b3d89c', '#a7c7e7'],
       borderRadius: 6,
-      
     }]
   },
   options: {
@@ -30,21 +23,35 @@ const placementChart = new Chart(ctx, {
       }
     },
     scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Number of Students'
-        }
-      },
-      x: {
-        barPercentage: 0.5,
-        categoryPercentage: 0.7,
-        title: {
-          display: true,
-          text: 'Year'
-        }
-      }
+      y: { beginAtZero: true, title: { display: true, text: 'Number of Students' } },
+      x: { barPercentage: 0.3, categoryPercentage: 0.5, title: { display: true, text: 'Year' } }
     }
+  }
+});
+
+// PDF Modal Script
+const deptButtons = document.querySelectorAll('.visit-btn');
+const pdfFrame = document.getElementById('pdfFrame');
+const pdfModal = document.getElementById('pdfModal');
+const closeModal = document.getElementById('closeModal');
+
+deptButtons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const pdfUrl = btn.getAttribute('data-pdf');
+    pdfFrame.src = pdfUrl;
+    pdfModal.style.display = 'block';
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  pdfModal.style.display = 'none';
+  pdfFrame.src = '';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === pdfModal) {
+    pdfModal.style.display = 'none';
+    pdfFrame.src = '';
   }
 });
