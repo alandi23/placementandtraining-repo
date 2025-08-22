@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Higher Studies – Alumni Tracker</title>
+    <link rel="stylesheet" href="higherstudies.css" />
+</head>
+
+<body>
+
+    <!-- 🔹 College Header -->
+    <header class="college-header">
+        <div class="header-container">
+            <img src="cummins-removebg-preview.png" alt="Cummins Logo" class="college-logo">
+            <div class="college-text">
+                <p class="top-small">Maharshi Karve Stree Shikshan Sanstha’s</p>
+                <h1 class="college-name">CUMMINS COLLEGE OF ENGINEERING FOR WOMEN, NAGPUR</h1>
+                <p class="sub-info">AICTE Approved | NAAC Accredited | DTE Code: 4304</p>
+            </div>
+        </div>
+    </header>
+
+
+    <header>
+        <div class="wrap">
+            <h1>Higher Studies – Alumni (Girls)</h1>
+            <div class="subtitle">Track alumni pursuing MS, MBA, PhD and more across universities worldwide.</div>
+        </div>
+    </header>
+
+    <!-- 🔹 Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="companies.html">Facilites</a>
+    <a href="training.html">Academics</a>
+    <a href="training.html">Placement & training</a>
+    <a href="higherstudies.html">Higher Studies</a>
+    
+  </div>
+  <span class="openbtn" onclick="openSidebar()">☰ Menu</span>
+
+    <main class="wrap">
+        <div class="toolbar">
+            <div class="filters">
+                <input id="search" type="search" placeholder="Search by name / university / country" />
+                <select id="course">
+                    <option value="">All Courses</option>
+                    <option>MS</option>
+                    <option>MBA</option>
+                    <option>PhD</option>
+                    <option>MTech</option>
+                    <option>MPH</option>
+                </select>
+                <select id="year">
+                    <option value="">All Years</option>
+                </select>
+                <select id="country">
+                    <option value="">All Countries</option>
+                </select>
+                <button id="reset" class="btn secondary" title="Clear filters">Reset</button>
+            </div>
+            <div class="meta">
+                <span id="count" class="pill">0 records</span>
+                <div class="view-toggle" role="tablist" aria-label="Toggle view">
+                    <button id="viewCards" class="active" aria-selected="true">Cards</button>
+                    <button id="viewTable">Table</button>
+                </div>
+                <button id="exportCsv" class="btn" title="Download CSV">Export CSV</button>
+            </div>
+        </div>
+
+        <!-- Cards View -->
+        <section id="cardsView" class="grid" aria-live="polite"></section>
+
+        <!-- Table View -->
+        <section id="tableView" class="table-wrap" style="display:none">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Specialization</th>
+                        <th>University</th>
+                        <th>Country</th>
+                        <th>Year</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <dialog id="detailModal" aria-label="Alumna details">
+        <div class="modal-head">
+            <strong id="mTitle">Alumna</strong>
+            <button id="mClose" class="btn secondary">Close</button>
+        </div>
+        <div class="modal-body" id="mBody"></div>
+    </dialog>
+
+    <footer>
+        © <span id="yr"></span> College Higher Studies Cell · Built for institutional portals
+    </footer>
+
+    <script src="higherstudies.js"></script>
+</body>
+
+</html>

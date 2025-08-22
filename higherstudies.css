@@ -1,0 +1,519 @@
+:root {
+    --brand: #1f4acc;
+    --brand-2: #0f2a88;
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --text: #222;
+    --muted: #667085;
+    --ring: #e8ecf7
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text)
+}
+
+/* 🔹 College Header Section */
+.college-header {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #0047ab;
+  background: linear-gradient(135deg, #fef6e4, #ffffff);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.college-logo {
+  height: 110px;
+}
+
+.college-text .top-small {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+}
+
+.college-text .college-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #003366;
+  margin: 5px 0;
+}
+
+.college-text .sub-info {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    padding: 28px 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .1)
+}
+
+/* Sidebar */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #2c3e50, #34495e);
+  overflow-x: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+}
+.sidebar.open { width: 280px; }
+.sidebar a {
+  padding: 18px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #ecf0f1;
+  display: block;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  font-weight: 500;
+}
+.sidebar a:hover {
+  background: rgba(52, 152, 219, 0.2);
+  border-left-color: #3498db;
+  padding-left: 35px;
+  color: #3498db;
+}
+.closebtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 36px !important;
+}
+.openbtn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  z-index: 999;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+  font-weight: 600;
+}
+.openbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(52, 152, 219, 0.6);
+  background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: .2px
+}
+
+.subtitle {
+    margin-top: 6px;
+    opacity: .9
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 0
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.filters select,
+.filters input {
+    padding: 10px 12px;
+    border: 1px solid var(--ring);
+    background: #fff;
+    border-radius: 10px;
+    min-width: 160px;
+    outline: none
+}
+
+.filters input {
+    min-width: 220px
+}
+
+.btn {
+    appearance: none;
+    border: 0;
+    background: var(--brand);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(31, 74, 204, .18)
+}
+
+.btn.secondary {
+    background: #fff;
+    color: var(--brand);
+    border: 1px solid var(--ring)
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--brand);
+    border: 1px dashed var(--brand)
+}
+
+.meta {
+    display: flex;
+    gap: 14px;
+    align-items: center
+}
+
+.pill {
+    background: #eef3ff;
+    color: linear-gradient(135deg, #3498db, #2980b9);
+    border: 1px solid var(--ring);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px
+}
+
+.view-toggle {
+    display: flex;
+    border: 1px solid var(--ring);
+    border-radius: 10px;
+    overflow: hidden
+}
+
+.view-toggle button {
+    padding: 8px 12px;
+    border: 0;
+    background: #fff;
+    cursor: pointer
+}
+
+.view-toggle button.active {
+    background: var(--brand);
+    color: #fff
+}
+
+/* Cards grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--ring);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .05)
+}
+
+.card h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #0f1222
+}
+
+.tagrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 10px
+}
+
+.tag {
+    font-size: 12px;
+    background: #f2f4f7;
+    color: #0f1222;
+    border: 1px solid var(--ring);
+    padding: 4px 8px;
+    border-radius: 999px
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px
+}
+
+.card .actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px
+}
+
+/* Table */
+.table-wrap {
+    overflow: auto;
+    border: 1px solid var(--ring);
+    border-radius: 12px;
+    background: #fff
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background:linear-gradient(135deg, #3498db, #2980b9);
+    border-bottom: 1px solid var(--ring);
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    color: #334155
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f2f7;
+    font-size: 14px
+}
+
+tbody tr:hover {
+    background: #fafcff
+}
+
+/* Modal */
+dialog {
+    border: 0;
+    border-radius: 16px;
+    max-width: 520px;
+    width: 90%;
+    padding: 0;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .25)
+}
+
+dialog::backdrop {
+    background: rgba(15, 18, 34, .55)
+}
+
+.modal-head {
+    padding: 16px 20px;
+    background: #f7f9ff;
+    border-bottom: 1px solid var(--ring);
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.modal-body {
+    padding: 18px 20px
+}
+
+footer {
+    margin: 40px 0 24px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center
+}
+
+@media (max-width:640px) {
+    .filters input {
+        min-width: 160px
+    }
+
+    .toolbar {
+        gap: 16px
+    }
+}
+
+/* Chatbot Styles */
+.chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+.chatbot-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+  color: white;
+  font-size: 24px;
+  position: relative;
+}
+.chatbot-toggle.active {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+.chatbot-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s;
+}
+.chatbot-window.active {
+  transform: scale(1);
+  opacity: 1;
+}
+.chatbot-header {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+.chatbot-messages {
+  height: 350px;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+.message {
+  margin-bottom: 15px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 80%;
+}
+
+/* Chatbot input and send button border */
+#chatbot-input,
+.chatbot-send {
+  border: 2px solid skyblue;   /* sky blue border */
+  border-radius: 6px;          /* optional: rounded corners */
+  padding: 8px 12px;
+  outline: none;          
+}
+
+#chatbot-input:focus,
+.chatbot-send:hover {
+  border-color: deepskyblue;   /* darker sky blue on focus/hover */
+}
+
+
+.bot-message {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.user-message {
+  background: #3498db;
+  color: white;
+  margin-left: auto;
+}
+
+/* Footer Styling */
+.footer {
+  background: #222;
+  color: #ddd;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  margin: 10px;
+}
+
+.footer h3 {
+  color: #ffcc00;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer p,
+.footer a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
