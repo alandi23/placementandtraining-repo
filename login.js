@@ -22,3 +22,10 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     message.textContent = "Invalid email or password ❌";
   }
 });
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // Form reload stop karega
+
+  // Direct redirect to info.html
+  window.location.href = "info.html";
+});
