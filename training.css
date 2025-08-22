@@ -51,10 +51,11 @@ body {
 }
 
 /* 🔹 Login Button/Icon */
-.login-container {
+.training-page .login-container {
   position: absolute;
   top: 20px;
   right: 20px;
+
 }
 
 .login-link {
