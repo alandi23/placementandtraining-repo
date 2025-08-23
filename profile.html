@@ -1,1046 +1,1031 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile - Training & Placement Portal</title>
+    <title>Student Profile - Enhanced</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .edit-mode {
+            border: 2px dashed #e2b627cf !important;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #fef6e4, #ffffff);
-            line-height: 1.6;
-            color: #333;
-            min-height: 100vh;
+        .section-card {
+            transition: all 0.3s ease;
         }
 
-        .header {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 1.2rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.6rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255,255,255,0.2);
+        .section-card:hover {
             transform: translateY(-2px);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .profile-header {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-        }
-
-        .profile-main {
-            display: flex;
-            gap: 2.5rem;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .profile-photo {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3.5rem;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .profile-name {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-title {
-            font-size: 1.3rem;
-            color: #7f8c8d;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .career-objective {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 5px solid #3498db;
-            margin-bottom: 2rem;
-            font-style: italic;
-            color: #2c3e50;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #555;
-            padding: 0.5rem;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-
-        .resume-upload-section {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 2px dashed #3498db;
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        .resume-upload-btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1rem;
-        }
-
-        .resume-upload-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-            background: linear-gradient(135deg, #2980b9, #1f5f99);
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .uploaded-file {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 10px;
-            display: none;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-        }
-
-        .score-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .score-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid #3498db;
-            transition: all 0.3s;
-        }
-
-        .score-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .score-value {
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.2rem;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #2980b9, #1f5f99);
-        }
-
-        .project-item, .experience-item, .cert-item {
-            padding: 1.5rem;
-            border-left: 5px solid #3498db;
-            background: #f8f9fa;
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .cert-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .cert-upload {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cert-upload-btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .cert-upload-btn:hover {
-            background: linear-gradient(135deg, #2980b9, #1f5f99);
-            transform: scale(1.1);
-        }
-
-        .cert-status {
-            font-size: 0.8rem;
-            color: #27ae60;
-            font-weight: 600;
-        }
-
-        .project-item:hover, .experience-item:hover, .cert-item:hover {
-            background: #e9ecef;
-            transform: translateX(8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .project-title, .experience-title, .cert-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .project-desc, .experience-desc, .cert-desc {
-            color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-
-        .project-type {
             display: inline-block;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            margin: 2px;
         }
 
-        .language-tags {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .language-tag {
-            background: white;
-            color: #3498db;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            border: 2px solid #3498db;
-            transition: all 0.3s;
-        }
-
-        .language-tag:hover {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .interest-list, .soft-skills-list {
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .interest-item, .soft-skill-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            transition: all 0.3s;
+        .file-upload-area {
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .interest-item:hover, .soft-skill-item:hover {
-            background: #e9ecef;
-            transform: translateX(8px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .file-upload-area:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
         }
 
-        .achievement-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .achievement-item:hover {
-            background: #e9ecef;
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .achievement-content {
-            flex: 1;
-        }
-
-        .achievement-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.3rem;
-        }
-
-        .achievement-desc {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .profile-main {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-name {
-                font-size: 2.2rem;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .pulse {
+        .status-badge {
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
+
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg, #2c3e50, #34495e);
+            overflow-x: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar.open {
+            width: 280px;
+        }
+
+        .sidebar a {
+            padding: 18px 25px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #ecf0f1;
+            display: block;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+        }
+
+        .sidebar a:hover {
+            background: rgba(52, 152, 219, 0.2);
+            border-left-color: #3498db;
+            padding-left: 35px;
+            color: #3498db;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px !important;
+        }
+
+        .openbtn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            font-weight: 600;
+        }
+
+        .openbtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.6);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+
+
+        /* heading*/
+        .college-header {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 2px solid #0047ab;
+            background: linear-gradient(135deg, #fef6e4, #ffffff);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .college-logo {
+            height: 110px;
+
+        }
+
+        .college-text .top-small {
+            font-size: 14px;
+            color: #444;
+            margin: 0;
+        }
+
+        .college-text .college-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #003366;
+            margin: 5px 0;
+        }
+
+        .college-text .sub-info {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* 🔹 Navbar */
+.navbar {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  padding: 12px 0;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 Blinking Important Links */
+.blink-link {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 0 90px;
+  animation: blink 1s infinite;
+}
+
+.blink-link:hover {
+  color: yellow;
+  text-decoration: underline;
+}
+
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* 🔹 Footer */
+.footer {
+  background: #222;
+  color: #ddd;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  margin: 10px;
+}
+
+.footer h3 {
+  color: #ffcc00;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer p,
+.footer a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* 🔹 Social Icons */
+/* 🔹 Social Icons */
+.social-icons {
+  display: flex;          /* put icons in one row */
+  align-items: center;
+  gap: 10px;              /* space between icons */
+  margin-top: 8px;
+}
+
+.social-icons a {
+  display: inline-block;  /* keeps icons inline */
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+  border-radius: 50%; /* optional - round icons */
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+
+/* 🔹 Google Maps Link */
+.map-link {
+  color: #ff6666;   /* eye-catching red */
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.map-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <span>Training & Placement Portal</span>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- 🔹 header-->
+    <header class="college-header">
+        <div class="header-container">
+            <img src="cummins-removebg-preview.png" alt="Cummins Logo" class="college-logo">
+            <div class="college-text">
+                <p class="top-small">Maharshi Karve Stree Shikshan Sanstha’s</p>
+                <h1 class="college-name">CUMMINS COLLEGE OF ENGINEERING FOR WOMEN, NAGPUR</h1>
+                <p class="sub-info">AICTE Approved | NAAC Accredited | DTE Code: 4304</p>
             </div>
-            <nav class="nav-links">
-                <a href="#">Edit</a>
-            </nav>
         </div>
     </header>
 
-    <div class="container">
+
+
+    <!-- 🔹 Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a>Facilites</a>
+        <a>Academics</a>
+        <a href="training.html">Placement & training</a>
+        <a href="higherstudies.html">Higher Studies</a>
+        <a>Placement Preparation</a>
+
+    </div>
+    <span class="openbtn" onclick="openSidebar()">☰ Menu</span>
+
+
+    <!-- 🔹 Navigation Bar -->
+<nav class="navbar">
+  <ul class="nav-links">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <a href="https://perfleap.com/NutrabaySDEInternship" target="_blank" class="blink-link">Nutrabay SDE Internship</a> |
+      <a href="https://zuddl.keka.com/careers/jobdetails/95456" target="_blank" class="blink-link">Zuddl Careers</a> |
+      <a href="https://ibmglobal.avature.net/en_US/careers/JobDetail?jobId=48508&source=WEB_Search_INDIA" target="_blank" class="blink-link">IBM Careers</a> |
+      <a href="https://www.linkedin.com/jobs/view/4251605441" target="_blank" class="blink-link">LinkedIn Job</a>
+    </marquee>
+  </ul>
+</nav>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-bold text-gray-800">STUDENT PROFILE </h1>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleEditMode()" id="editBtn"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                      Edit Profile
+                    </button>
+                    <button onclick="saveProfile()" id="saveBtn"
+                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                        style="display: none;">
+                       Save Changes
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-6">
         <!-- Profile Header -->
-        <div class="profile-header fade-in">
-            <div class="profile-main">
-                <div class="profile-photo pulse">
-                    AP
-                </div>
-                <div class="profile-info">
-                    <h1 class="profile-name">Arjun Patel</h1>
-                    <p class="profile-title">Computer Science & Engineering • Batch 2024</p>
-                    
-                    <div class="career-objective">
-                        <strong>Career Objective:</strong> Passionate software engineer seeking to leverage technical expertise and innovative thinking to contribute to cutting-edge technology solutions in a dynamic and growth-oriented organization.
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 section-card">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-12 text-white">
+                <div class="flex items-center space-x-8">
+                    <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                        <img id="profilePhoto" src="" alt="Profile Photo" class="w-full h-full object-cover"
+                            style="display: none;">
+                        <div id="profilePhotoPlaceholder" class="text-6xl text-gray-400">👤</div>
                     </div>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span>Email: arjun.patel@email.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <span>Phone: +91 9876543210</span>
-                        </div>
-                        <div class="contact-item">
-                            <a href="#" style="color: #2c3e50; text-decoration: none;">LinkedIn: linkedin.com/in/arjunpatel</a>
-                        </div>
-                        <div class="contact-item">
-                            <a href="#" style="color: #2c3e50; text-decoration: none;">GitHub: github.com/arjunpatel</a>
-                        </div>
-                    </div>
-                    
-                    <div class="resume-upload-section">
-                        <h4 style="margin-bottom: 1rem; color: #2c3e50;">Resume Upload</h4>
-                        <input type="file" id="resumeFile" class="file-input" accept=".pdf" onchange="handleFileUpload(event)">
-                        <button class="resume-upload-btn" onclick="document.getElementById('resumeFile').click()">
-                            Upload Resume (PDF)
-                        </button>
-                        <div class="uploaded-file" id="uploadedFile">
-                            <span id="fileName"></span>
-                            <button onclick="removeFile()" style="background: none; border: none; color: #e74c3c; cursor: pointer;">
-                                Remove
-                            </button>
-                        </div>
+                    <div class="flex-1">
+                        <h1 class="text-4xl font-bold mb-2 editable" data-field="name">Student Name</h1>
+                        <p class="text-xl opacity-90 mb-1 editable" data-field="rollNumber">Roll Number</p>
+                        <p class="text-lg opacity-80 editable" data-field="branchYear">Branch & Year</p>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Academic Performance & Basic Info -->
-        <div class="grid grid-2">
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Academic Performance
-                </h3>
-                <div class="score-grid">
-                    <div class="score-item">
-                        <span>B.Tech CGPA</span>
-                        <span class="score-value">8.7/10</span>
-                    </div>
-                    <div class="score-item">
-                        <span>12th Aggregate</span>
-                        <span class="score-value">93.5%</span>
-                    </div>
-                    <div class="score-item">
-                        <span>10th Aggregate</span>
-                        <span class="score-value">95.8%</span>
-                    </div>
-                    <div class="score-item">
-                        <span>Current Backlogs</span>
-                        <span class="score-value" style="color: #27ae60;">0</span>
-                    </div>
-                    <div class="score-item">
-                        <span>History of Backlogs</span>
-                        <span class="score-value">1 (Cleared)</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Personal Information
-                </h3>
-                <div class="score-grid">
-                    <div class="score-item">
-                        <span>Department</span>
-                        <span class="score-value">Computer Science & Engineering</span>
-                    </div>
-                    <div class="score-item">
-                        <span>Batch</span>
-                        <span class="score-value">2024</span>
-                    </div>
-                    <div class="score-item">
-                        <span>Year Gap</span>
-                        <span class="score-value" style="color: #27ae60;">No Gap</span>
-                    </div>
-                    <div class="score-item">
-                        <span>Languages Known</span>
-                        <div class="language-tags">
-                            <span class="language-tag">English</span>
-                            <span class="language-tag">Hindi</span>
-                            <span class="language-tag">Marathi</span>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Contact
+                        Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-blue-600 text-xl"></span>
+                            <div>
+                                <p class="text-sm text-gray-600">Email</p>
+                                <p class="font-medium editable" data-field="email">email@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-blue-600 text-xl"></span>
+                            <div>
+                                <p class="text-sm text-gray-600">Mobile</p>
+                                <p class="font-medium editable" data-field="mobile">+91 XXXXXXXXXX</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Technical Skills -->
-        <div class="card fade-in">
-            <h3 class="card-title">
-                Technical Skills
-            </h3>
-            <div class="skills-container">
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">Spring Boot</span>
-                <span class="skill-tag">HTML/CSS</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Data Structures</span>
-                <span class="skill-tag">Algorithms</span>
-            </div>
-        </div>
+                <!-- Skills Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2">Skills</h2>
 
-        <!-- Projects & Experience -->
-        <div class="grid grid-2">
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Projects
-                </h3>
-                <div class="project-item">
-                    <div class="project-title">Smart Campus Management System</div>
-                    <div class="project-desc">Comprehensive web application for managing student records, attendance, and academic activities</div>
-                    <span class="project-type">Major Project</span>
-                </div>
-                <div class="project-item">
-                    <div class="project-title">Online Banking System</div>
-                    <div class="project-desc">Secure banking application with transaction management and user authentication</div>
-                    <span class="project-type">Mini Project</span>
-                </div>
-                <div class="project-item">
-                    <div class="project-title">Task Management Dashboard</div>
-                    <div class="project-desc">React-based productivity tool with real-time collaboration features</div>
-                    <span class="project-type">Personal Project</span>
-                </div>
-            </div>
-
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Internships & Training
-                </h3>
-                <div class="experience-item">
-                    <div class="experience-title">Full Stack Developer Intern</div>
-                    <div class="experience-desc">InnovateTech Solutions • May 2023 - July 2023</div>
-                    <div class="experience-desc">Developed responsive web applications using MERN stack and implemented RESTful APIs</div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-title">Machine Learning Training</div>
-                    <div class="experience-desc">AI Academy Institute • January 2023 - March 2023</div>
-                    <div class="experience-desc">Comprehensive training in ML algorithms, data preprocessing, and model deployment</div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-title">Cloud Computing Workshop</div>
-                    <div class="experience-desc">AWS Training Center • December 2022</div>
-                    <div class="experience-desc">Hands-on experience with AWS services and cloud architecture principles</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Certifications & Achievements -->
-        <div class="grid grid-2">
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Certifications
-                </h3>
-                <div class="cert-item">
-                    <div class="cert-header">
+                    <div class="space-y-6">
                         <div>
-                            <div class="cert-title">AWS Certified Solutions Architect</div>
-                            <div class="cert-desc">Amazon Web Services • Valid until December 2025</div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Technical Skills</h3>
+                            <div id="technicalSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span
+                                    class="skill-tag bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span
+                                    class="skill-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Java</span>
+                            </div>
+                            <button onclick="addSkill('technical')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Skill</button>
                         </div>
-                        <div class="cert-upload">
-                            <input type="file" id="cert1" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert1-status')">
-                            <button class="cert-upload-btn" onclick="document.getElementById('cert1').click()">
-                                PDF
-                            </button>
-                            <span class="cert-status" id="cert1-status"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-header">
+
                         <div>
-                            <div class="cert-title">Oracle Certified Java Professional</div>
-                            <div class="cert-desc">Oracle Corporation • Valid until August 2025</div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Tools & Platforms</h3>
+                            <div id="toolsSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Git</span>
+                                <span
+                                    class="skill-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                            </div>
+                            <button onclick="addSkill('tools')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Tool</button>
                         </div>
-                        <div class="cert-upload">
-                            <input type="file" id="cert2" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert2-status')">
-                            <button class="cert-upload-btn" onclick="document.getElementById('cert2').click()">
-                                PDF
-                            </button>
-                            <span class="cert-status" id="cert2-status"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-header">
+
                         <div>
-                            <div class="cert-title">Google Cloud Professional Developer</div>
-                            <div class="cert-desc">Google Cloud Platform • Valid until June 2025</div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Core Subjects</h3>
+                            <div id="coreSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Data
+                                    Structures</span>
+                                <span
+                                    class="skill-tag bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">DBMS</span>
+                            </div>
+                            <button onclick="addSkill('core')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Subject</button>
                         </div>
-                        <div class="cert-upload">
-                            <input type="file" id="cert3" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert3-status')">
-                            <button class="cert-upload-btn" onclick="document.getElementById('cert3').click()">
-                                PDF
-                            </button>
-                            <span class="cert-status" id="cert3-status"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-header">
+
                         <div>
-                            <div class="cert-title">MongoDB Certified Developer</div>
-                            <div class="cert-desc">MongoDB University • Completed November 2023</div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Soft Skills</h3>
+                            <div id="softSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Leadership</span>
+                                <span
+                                    class="skill-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Communication</span>
+                            </div>
+                            <button onclick="addSkill('soft')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Skill</button>
                         </div>
-                        <div class="cert-upload">
-                            <input type="file" id="cert4" class="file-input" accept=".pdf" onchange="handleCertUpload(event, 'cert4-status')">
-                            <button class="cert-upload-btn" onclick="document.getElementById('cert4').click()">
-                                PDF
-                            </button>
-                            <span class="cert-status" id="cert4-status"></span>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2"> Projects</h2>
+                        <button onclick="addProject()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Project</button>
+                    </div>
+                    <div id="projectsList" class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4 py-2">
+                            <h3 class="font-bold text-lg editable" data-field="project1Title">E-Commerce Website</h3>
+                            <p class="text-gray-600 mb-2 editable" data-field="project1Desc">Full-stack web application
+                                with user authentication and payment integration</p>
+                            <p class="text-sm text-blue-600 mb-2 editable" data-field="project1Tech">React, Node.js,
+                                MongoDB, Stripe API</p>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable"
+                                data-field="project1Link"> View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internships Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2">Internships &
+                            Experience</h2>
+                        <button onclick="addInternship()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Experience</button>
+                    </div>
+                    <div id="internshipsList" class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg editable" data-field="intern1Company">Tech Solutions Inc.</h3>
+                            <p class="text-blue-600 font-medium editable" data-field="intern1Role">Software Development
+                                Intern</p>
+                            <p class="text-gray-600 text-sm mb-2 editable" data-field="intern1Duration">June 2023 -
+                                August 2023</p>
+                            <p class="text-gray-700 editable" data-field="intern1Desc">Developed REST APIs and worked on
+                                frontend components using React</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2"> Certifications
+                        </h2>
+                        <button onclick="addCertification()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Certification</button>
+                    </div>
+                    <div id="certificationsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 p-4 rounded-lg">
+                            <h3 class="font-bold editable" data-field="cert1Name">AWS Cloud Practitioner</h3>
+                            <p class="text-gray-600 text-sm editable" data-field="cert1Provider">Amazon Web Services</p>
+                            <p class="text-blue-600 text-sm editable" data-field="cert1Date">Valid until: Dec 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Upload -->
+                    <div class="mt-6 edit-only" style="display: none;">
+                        <h3 class="font-semibold mb-3">Upload Certificates</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('certUpload').click()">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2"></div>
+                                <p class="text-gray-600">Click to upload certificates</p>
+                                <p class="text-xs text-gray-500">PDF, JPG, PNG (Max 5MB each)</p>
+                            </div>
+                        </div>
+                        <input type="file" id="certUpload" multiple accept=".pdf,.jpg,.jpeg,.png" style="display: none;"
+                            onchange="handleCertUpload(event)">
+                    </div>
+                </div>
+
+                <!-- Achievements Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2"> Achievements
+                        </h2>
+                        <button onclick="addAchievement()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Achievement</button>
+                    </div>
+                    <div id="achievementsList" class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl"></span>
+                            <div>
+                                <p class="font-medium editable" data-field="achieve1">Winner - College Hackathon 2023
+                                </p>
+                                <p class="text-sm text-gray-600 editable" data-field="achieve1Desc">Built an AI-powered
+                                    chatbot for student queries</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Achievements & Competitions
-                </h3>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Winner - National Coding Championship 2023</div>
-                        <div class="achievement-desc">Secured 1st position among 5000+ participants</div>
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- Academic Details -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Academic
+                        Details</h2>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2">Current CGPA</h3>
+                            <p class="text-lg font-bold text-blue-600 editable" data-field="cgpa">8.5</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2">10th Grade</h3>
+                            <p class="text-lg font-bold text-green-600 editable" data-field="tenth">95%</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2">12th Grade</h3>
+                            <p class="text-lg font-bold text-purple-600 editable" data-field="twelfth">88%</p>
+                        </div>
                     </div>
                 </div>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Best Innovation Award</div>
-                        <div class="achievement-desc">College Technical Symposium 2023</div>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Dean's List Academic Excellence</div>
-                        <div class="achievement-desc">Consecutive 4 semesters (2022-2024)</div>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Hackathon Runner-up</div>
-                        <div class="achievement-desc">Smart India Hackathon 2023</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Areas of Interest, Soft Skills, Extra-Curricular -->
-        <div class="grid grid-3">
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Areas of Interest
-                </h3>
-                <div class="interest-list">
-                    <div class="interest-item">
-                        <span>Artificial Intelligence</span>
-                    </div>
-                    <div class="interest-item">
-                        <span>Full Stack Development</span>
-                    </div>
-                    <div class="interest-item">
-                        <span>Cloud Computing</span>
-                    </div>
-                    <div class="interest-item">
-                        <span>Data Science</span>
-                    </div>
-                    <div class="interest-item">
-                        <span>Mobile Development</span>
-                    </div>
-                    <div class="interest-item">
-                        <span>Cybersecurity</span>
-                    </div>
-                </div>
-            </div>
+                <!-- Resume & Documents -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Documents</h2>
 
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Soft Skills
-                </h3>
-                <div class="soft-skills-list">
-                    <div class="soft-skill-item">
-                        <span>Leadership</span>
-                    </div>
-                    <div class="soft-skill-item">
-                        <span>Team Collaboration</span>
-                    </div>
-                    <div class="soft-skill-item">
-                        <span>Problem Solving</span>
-                    </div>
-                    <div class="soft-skill-item">
-                        <span>Communication</span>
-                    </div>
-                    <div class="soft-skill-item">
-                        <span>Time Management</span>
-                    </div>
-                    <div class="soft-skill-item">
-                        <span>Critical Thinking</span>
-                    </div>
-                </div>
-            </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold mb-2">Resume</h3>
+                            <div id="resumeSection"
+                                class="border-2 border-dashed border-gray-300 p-4 rounded-lg text-center">
+                                <div class="text-3xl mb-2"></div>
+                                <p class="text-gray-600 mb-2">No resume uploaded</p>
+                                <button onclick="document.getElementById('resumeUpload').click()"
+                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                                    Upload Resume
+                                </button>
+                            </div>
+                            <input type="file" id="resumeUpload" accept=".pdf" style="display: none;"
+                                onchange="handleResumeUpload(event)">
+                        </div>
 
-            <div class="card fade-in">
-                <h3 class="card-title">
-                    Extra-Curricular Activities
-                </h3>
-                <div class="experience-item">
-                    <div class="experience-title">Student Council President</div>
-                    <div class="experience-desc">Led student body of 2000+ members and organized major college events</div>
+                        <div id="uploadedResume" style="display: none;" class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-2xl"></span>
+                                    <div>
+                                        <p class="font-medium" id="resumeName">Resume.pdf</p>
+                                        <p class="text-sm text-gray-600" id="resumeSize">Size: 2.5 MB</p>
+                                    </div>
+                                </div>
+                                <div class="space-x-2">
+                                    <button onclick="downloadResume()"
+                                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
+                                        Download
+                                    </button>
+                                    <button onclick="removeResume()"
+                                        class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-title">Coding Club Coordinator</div>
-                    <div class="experience-desc">Mentored junior students and conducted programming workshops</div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-title">Community Service Volunteer</div>
-                    <div class="experience-desc">Teaching computer literacy to underprivileged children</div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-title">Sports Team Captain</div>
-                    <div class="experience-desc">Led college cricket team to inter-university championship</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Awards & Recognitions -->
-        <div class="card fade-in">
-            <h3 class="card-title">
-                Awards & Recognitions
-            </h3>
-            <div class="grid grid-2">
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Outstanding Student of the Year 2023</div>
-                        <div class="achievement-desc">Recognized for academic excellence and leadership qualities</div>
+                <!-- Linked Accounts -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Linked Accounts
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">LinkedIn</span>
+                            </div>
+                            <input type="url" class="editable-input border-none bg-transparent text-right text-blue-600"
+                                data-field="linkedin" placeholder="Profile URL" style="display: none;">
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="linkedin">Not
+                                linked</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">GitHub</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="github">Not
+                                linked</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">LeetCode</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="leetcode">Not
+                                linked</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">HackerRank</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable"
+                                data-field="hackerrank">Not linked</a>
+                        </div>
                     </div>
                 </div>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Best Technical Paper Presentation</div>
-                        <div class="achievement-desc">National Conference on Emerging Technologies</div>
+
+                <!-- Placement Preferences -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Placement
+                        Preferences</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Dream Role</label>
+                            <p class="editable bg-gray-50 p-2 rounded" data-field="dreamRole">Software Engineer</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Job Preference</label>
+                            <p class="editable bg-gray-50 p-2 rounded" data-field="jobPreference">IT</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Ready to Relocate</label>
+                            <p class="editable bg-gray-50 p-2 rounded" data-field="relocate">Yes</p>
+                        </div>
                     </div>
                 </div>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Excellence in Community Service</div>
-                        <div class="achievement-desc">Recognized by local government for social initiatives</div>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="achievement-content">
-                        <div class="achievement-title">Scholarship Recipient</div>
-                        <div class="achievement-desc">Merit-based scholarship for academic performance</div>
+
+                <!-- Placement Dashboard -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Placement
+                        Dashboard</h2>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-800">Applications Sent</h3>
+                            <p class="text-2xl font-bold text-blue-600">12</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-yellow-800">Interviews Scheduled</h3>
+                            <p class="text-2xl font-bold text-yellow-600">3</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-green-800">Offers Received</h3>
+                            <p class="text-2xl font-bold text-green-600">1</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<!-- 🔹 Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Important Links</h3>
+      <ul>
+        <li><a href="#">Newsletters</a></li>
+        <li><a href="#">AICTE EoA & LoI</a></li>
+        <li><a href="#">RTMNU Affiliation</a></li>
+        <li><a href="#">NIRF Reports</a></li>
+        <li><a href="#">Mandatory Disclosures</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>📞 +91 9420410225</p>
+      <p>📞 +91 8055935567</p>
+      <p>📞 +91 7768929237</p>
+      <p>📞 +91 8422008886</p>
+      <p>✉️ office@cumminscollege.edu.in</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>City Office</h3>
+      <p>Maharshi Karve Stree Shikshan Samstha's</p>
+      <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
+      <p>Nagpur - 440015</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Institute Address</h3>
+      <p>
+        <a href="https://www.google.com/maps/place/Cummins+College+Of+Engineering+For+Women,+Nagpur/@21.1220581,78.9468932,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd4957a9f9a7d8b:0x5d2e5d0b505d1e58!8m2!3d21.1220581!4d78.9468932!16s%2Fg%2F11h8y2sk53?entry=ttu" 
+           target="_blank" class="map-link">
+          Cummins College Of Engineering For Women, Nagpur,<br>
+          3X9H+JPW, Tal, Mouje, Gupchup, Sukali, Hingna,<br>
+          Maharashtra 441110
+        </a>
+      </p>
+
+      <h3>Social Connect</h3>
+      <div class="social-icons">
+        <p><a href="https://www.facebook.com/CCOEWNAGPUR/" target="_blank">
+          <img src="facebbok.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/ccoewnagpur/?hl=en" target="_blank">
+          <img src="insta.svg" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/school/cummins-college-of-engineering-for-women-mauja/?originalSubdomain=in" target="_blank">
+          <img src="leankdean.jpg" alt="LinkedIn">
+        </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
     <script>
-        // Smooth animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        let isEditMode = false;
+        let profileData = {
+            name: 'Student Name',
+            rollNumber: 'Roll Number',
+            branchYear: 'Branch & Year',
+            email: 'email@example.com',
+            mobile: '+91 XXXXXXXXXX',
+            cgpa: '8.5',
+            tenth: '95%',
+            twelfth: '88%',
+            linkedin: 'Not linked',
+            github: 'Not linked',
+            leetcode: 'Not linked',
+            hackerrank: 'Not linked',
+            dreamRole: 'Software Engineer',
+            jobPreference: 'IT',
+            relocate: 'Yes'
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const editBtn = document.getElementById('editBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const editOnlyElements = document.querySelectorAll('.edit-only');
+            const editableElements = document.querySelectorAll('.editable');
+
+            if (isEditMode) {
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'block';
+                editOnlyElements.forEach(el => el.style.display = 'block');
+                editableElements.forEach(el => {
+                    el.classList.add('edit-mode');
+                    el.contentEditable = true;
+                    el.style.cursor = 'text';
+                });
+            } else {
+                editBtn.style.display = 'block';
+                saveBtn.style.display = 'none';
+                editOnlyElements.forEach(el => el.style.display = 'none');
+                editableElements.forEach(el => {
+                    el.classList.remove('edit-mode');
+                    el.contentEditable = false;
+                    el.style.cursor = 'default';
+                });
+            }
+        }
+
+        function saveProfile() {
+            // Collect all editable data
+            const editableElements = document.querySelectorAll('.editable');
+            editableElements.forEach(el => {
+                const field = el.getAttribute('data-field');
+                if (field) {
+                    profileData[field] = el.textContent.trim();
                 }
             });
-        }, observerOptions);
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+            // Save to localStorage
+            localStorage.setItem('studentProfile', JSON.stringify(profileData));
 
-        // Resume upload functionality
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file && file.type === 'application/pdf') {
-                const uploadedFile = document.getElementById('uploadedFile');
-                const fileName = document.getElementById('fileName');
-                
-                fileName.textContent = file.name;
-                uploadedFile.style.display = 'flex';
-                
-                // Update button text
-                const uploadBtn = document.querySelector('.resume-upload-btn');
-                uploadBtn.innerHTML = 'Resume Uploaded';
-                uploadBtn.style.background = '#27ae60';
-                
-                // Show success animation
-                uploadedFile.style.animation = 'pulse 1s ease-in-out';
-            } else {
-                alert('Please upload a PDF file only.');
-                event.target.value = '';
+            toggleEditMode();
+            alert('Profile saved successfully! 💾');
+        }
+
+        function addSkill(category) {
+            const skillText = prompt(`Enter new ${category} skill:`);
+            if (skillText) {
+                const container = document.getElementById(`${category}Skills`);
+                const colors = {
+                    technical: 'bg-blue-100 text-blue-800',
+                    tools: 'bg-orange-100 text-orange-800',
+                    core: 'bg-indigo-100 text-indigo-800',
+                    soft: 'bg-yellow-100 text-yellow-800'
+                };
+
+                const skillTag = document.createElement('span');
+                skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
+                skillTag.textContent = skillText;
+                skillTag.onclick = () => {
+                    if (isEditMode && confirm('Remove this skill?')) {
+                        skillTag.remove();
+                    }
+                };
+                container.appendChild(skillTag);
             }
         }
 
-        // Certificate upload functionality
-        function handleCertUpload(event, statusId) {
+        function addProject() {
+            const projectsContainer = document.getElementById('projectsList');
+            const projectCount = projectsContainer.children.length + 1;
+
+            const projectDiv = document.createElement('div');
+            projectDiv.className = 'border-l-4 border-blue-500 pl-4 py-2';
+            projectDiv.innerHTML = `
+                <h3 class="font-bold text-lg editable" data-field="project${projectCount}Title">New Project</h3>
+                <p class="text-gray-600 mb-2 editable" data-field="project${projectCount}Desc">Project description</p>
+                <p class="text-sm text-blue-600 mb-2 editable" data-field="project${projectCount}Tech">Tech stack</p>
+                <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="project${projectCount}Link">🔗 Project Link</a>
+                <button onclick="this.parentElement.remove()" class="ml-4 text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            projectsContainer.appendChild(projectDiv);
+        }
+
+        function addInternship() {
+            const container = document.getElementById('internshipsList');
+            const count = container.children.length + 1;
+
+            const internDiv = document.createElement('div');
+            internDiv.className = 'bg-gray-50 p-4 rounded-lg';
+            internDiv.innerHTML = `
+                <h3 class="font-bold text-lg editable" data-field="intern${count}Company">Company Name</h3>
+                <p class="text-blue-600 font-medium editable" data-field="intern${count}Role">Role</p>
+                <p class="text-gray-600 text-sm mb-2 editable" data-field="intern${count}Duration">Duration</p>
+                <p class="text-gray-700 editable" data-field="intern${count}Desc">Description</p>
+                <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            container.appendChild(internDiv);
+        }
+
+        function addCertification() {
+            const container = document.getElementById('certificationsList');
+            const count = container.children.length + 1;
+
+            const certDiv = document.createElement('div');
+            certDiv.className = 'border border-gray-200 p-4 rounded-lg';
+            certDiv.innerHTML = `
+                <h3 class="font-bold editable" data-field="cert${count}Name">Certification Name</h3>
+                <p class="text-gray-600 text-sm editable" data-field="cert${count}Provider">Provider</p>
+                <p class="text-blue-600 text-sm editable" data-field="cert${count}Date">Date</p>
+                <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            container.appendChild(certDiv);
+        }
+
+        function addAchievement() {
+            const container = document.getElementById('achievementsList');
+            const count = container.children.length + 1;
+
+            const achieveDiv = document.createElement('div');
+            achieveDiv.className = 'flex items-center space-x-3';
+            achieveDiv.innerHTML = `
+                <span class="text-2xl">🏅</span>
+                <div class="flex-1">
+                    <p class="font-medium editable" data-field="achieve${count}">Achievement Title</p>
+                    <p class="text-sm text-gray-600 editable" data-field="achieve${count}Desc">Description</p>
+                </div>
+                <button onclick="this.parentElement.remove()" class="text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            container.appendChild(achieveDiv);
+        }
+
+        function handleResumeUpload(event) {
             const file = event.target.files[0];
-            const statusElement = document.getElementById(statusId);
-            const button = event.target.parentElement.querySelector('.cert-upload-btn');
-            
             if (file && file.type === 'application/pdf') {
-                statusElement.textContent = 'Uploaded';
-                button.innerHTML = 'Uploaded';
-                button.style.background = '#27ae60';
-                
-                // Add success animation
-                button.style.animation = 'pulse 0.5s ease-in-out';
-                setTimeout(() => {
-                    button.style.animation = '';
-                }, 500);
+                document.getElementById('resumeSection').style.display = 'none';
+                document.getElementById('uploadedResume').style.display = 'block';
+                document.getElementById('resumeName').textContent = file.name;
+                document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
+
+                // Store file reference
+                profileData.resumeFile = file;
             } else {
                 alert('Please upload a PDF file only.');
-                event.target.value = '';
-                statusElement.textContent = '';
-                button.innerHTML = 'PDF';
-                button.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
             }
         }
 
-        function removeFile() {
-            const uploadedFile = document.getElementById('uploadedFile');
-            const fileInput = document.getElementById('resumeFile');
-            const uploadBtn = document.querySelector('.resume-upload-btn');
-            
-            uploadedFile.style.display = 'none';
-            fileInput.value = '';
-            uploadBtn.innerHTML = 'Upload Resume (PDF)';
-            uploadBtn.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
+        function handleCertUpload(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => {
+                if (file.size <= 5 * 1024 * 1024) { // 5MB limit
+                    console.log(`Uploaded certificate: ${file.name}`);
+                    // Here you would typically upload to a server
+                } else {
+                    alert(`File ${file.name} is too large. Maximum size is 5MB.`);
+                }
+            });
         }
 
-        // Skill tag interactive effects
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
-                this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
-            });
+        function downloadResume() {
+            if (profileData.resumeFile) {
+                const url = URL.createObjectURL(profileData.resumeFile);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = profileData.resumeFile.name;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        }
+
+        function removeResume() {
+            if (confirm('Are you sure you want to remove the resume?')) {
+                document.getElementById('resumeSection').style.display = 'block';
+                document.getElementById('uploadedResume').style.display = 'none';
+                profileData.resumeFile = null;
+            }
+        }
+
+        function exportProfile() {
+            const profileHTML = document.documentElement.outerHTML;
+            const blob = new Blob([profileHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'student_profile.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Load profile data from localStorage on page load
+        window.addEventListener('load', function () {
+            const savedData = localStorage.getItem('studentProfile');
+            if (savedData) {
+                profileData = { ...profileData, ...JSON.parse(savedData) };
+
+                // Update UI with saved data
+                Object.keys(profileData).forEach(key => {
+                    const element = document.querySelector(`[data-field="${key}"]`);
+                    if (element && profileData[key]) {
+                        element.textContent = profileData[key];
+                    }
+                });
+            }
+
+            // Load data from info.html if available
+            const infoData = localStorage.getItem('studentInfo');
+            if (infoData) {
+                const info = JSON.parse(infoData);
+                if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
+                if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
+                if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
+                if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
+                if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
+                if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
+                if (info.tenth) document.querySelector('[data-field="tenth"]').textContent = info.tenth;
+                if (info.twelfth) document.querySelector('[data-field="twelfth"]').textContent = info.twelfth;
+                if (info.linkedin) document.querySelector('[data-field="linkedin"]').textContent = info.linkedin;
+
+                // Load photo if available
+                if (info.photo) {
+                    document.getElementById('profilePhoto').src = info.photo;
+                    document.getElementById('profilePhoto').style.display = 'block';
+                    document.getElementById('profilePhotoPlaceholder').style.display = 'none';
+                }
+            }
         });
 
-        // Card click effects
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-                setTimeout(() => {
-                    this.style.transform = 'translateY(-8px) scale(1)';
-                }, 200);
-            });
-        });
+        /* ==============================
+   Sidebar Functions
+============================== */
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
 
-        // Professional links hover effects
-        document.querySelectorAll('.contact-item a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.color = '#495057';
-                this.style.textDecoration = 'underline';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.color = '#2c3e50';
-                this.style.textDecoration = 'none';
-            });
-        });
-
-        // Add floating animation to profile photo
-        setInterval(() => {
-            const profilePhoto = document.querySelector('.profile-photo');
-            profilePhoto.style.transform = 'translateY(-5px)';
-            setTimeout(() => {
-                profilePhoto.style.transform = 'translateY(0px)';
-            }, 1000);
-        }, 3000);
-
-        // Initialize page
-        window.addEventListener('load', () => {
-            // Add staggered animation to cards
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
+        // Add click handlers for skill tags in edit mode
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('skill-tag') && isEditMode) {
+                if (confirm('Remove this skill?')) {
+                    e.target.remove();
+                }
+            }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972c18a4428c856b',t:'MTc1NTc5OTkyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97323d7685ba41b3',t:'MTc1NTg2NDM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
