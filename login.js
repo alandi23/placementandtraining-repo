@@ -15,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
     // Redirect after 1 second
     setTimeout(() => {
-      window.location.href = "dashboard.html";
+      window.location.href = "profile.html";
     }, 1000);
   } else {
     message.style.color = "red";
@@ -27,5 +27,5 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
   e.preventDefault(); // Form reload stop karega
 
   // Direct redirect to info.html
-  window.location.href = "info.html";
+  window.location.href = "profile.html";
 });
