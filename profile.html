@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Training & Placement Portal — Student Profile</title>
@@ -429,6 +431,365 @@
             <div class="contact-item">
               <span>📧</span>
               <span id="displayEmail">your.email@college.edu</span>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile - Enhanced</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .edit-mode {
+            border: 2px dashed #e2b627cf !important;
+        }
+
+        .section-card {
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .file-upload-area {
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-area:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .status-badge {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg, #2c3e50, #34495e);
+            overflow-x: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar.open {
+            width: 280px;
+        }
+
+        .sidebar a {
+            padding: 18px 25px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #ecf0f1;
+            display: block;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+        }
+
+        .sidebar a:hover {
+            background: rgba(52, 152, 219, 0.2);
+            border-left-color: #3498db;
+            padding-left: 35px;
+            color: #3498db;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px !important;
+        }
+
+        .openbtn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            font-weight: 600;
+        }
+
+        .openbtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.6);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+
+
+        /* heading*/
+        .college-header {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 2px solid #0047ab;
+            background: linear-gradient(135deg, #fef6e4, #ffffff);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .college-logo {
+            height: 110px;
+
+        }
+
+        .college-text .top-small {
+            font-size: 14px;
+            color: #444;
+            margin: 0;
+        }
+
+        .college-text .college-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #003366;
+            margin: 5px 0;
+        }
+
+        .college-text .sub-info {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* 🔹 Navbar */
+.navbar {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  padding: 12px 0;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 Blinking Important Links */
+.blink-link {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 0 90px;
+  animation: blink 1s infinite;
+}
+
+.blink-link:hover {
+  color: yellow;
+  text-decoration: underline;
+}
+
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* 🔹 Footer */
+.footer {
+  background: #222;
+  color: #ddd;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  margin: 10px;
+}
+
+.footer h3 {
+  color: #ffcc00;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer p,
+.footer a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* 🔹 Social Icons */
+/* 🔹 Social Icons */
+.social-icons {
+  display: flex;          /* put icons in one row */
+  align-items: center;
+  gap: 10px;              /* space between icons */
+  margin-top: 8px;
+}
+
+.social-icons a {
+  display: inline-block;  /* keeps icons inline */
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+  border-radius: 50%; /* optional - round icons */
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+
+/* 🔹 Google Maps Link */
+.map-link {
+  color: #ff6666;   /* eye-catching red */
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.map-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- 🔹 header-->
+    <header class="college-header">
+        <div class="header-container">
+            <img src="cummins-removebg-preview.png" alt="Cummins Logo" class="college-logo">
+            <div class="college-text">
+                <p class="top-small">Maharshi Karve Stree Shikshan Sanstha’s</p>
+                <h1 class="college-name">CUMMINS COLLEGE OF ENGINEERING FOR WOMEN, NAGPUR</h1>
+                <p class="sub-info">AICTE Approved | NAAC Accredited | DTE Code: 4304</p>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- 🔹 Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a>Facilites</a>
+        <a>Academics</a>
+        <a href="training.html">Placement & training</a>
+        <a href="higherstudies.html">Higher Studies</a>
+        <a>Placement Preparation</a>
+
+    </div>
+    <span class="openbtn" onclick="openSidebar()">☰ Menu</span>
+
+
+    <!-- 🔹 Navigation Bar -->
+<nav class="navbar">
+  <ul class="nav-links">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <a href="https://perfleap.com/NutrabaySDEInternship" target="_blank" class="blink-link">Nutrabay SDE Internship</a> |
+      <a href="https://zuddl.keka.com/careers/jobdetails/95456" target="_blank" class="blink-link">Zuddl Careers</a> |
+      <a href="https://ibmglobal.avature.net/en_US/careers/JobDetail?jobId=48508&source=WEB_Search_INDIA" target="_blank" class="blink-link">IBM Careers</a> |
+      <a href="https://www.linkedin.com/jobs/view/4251605441" target="_blank" class="blink-link">LinkedIn Job</a>
+    </marquee>
+  </ul>
+</nav>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-bold text-gray-800">STUDENT PROFILE </h1>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleEditMode()" id="editBtn"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                      Edit Profile
+                    </button>
+                    <button onclick="saveProfile()" id="saveBtn"
+                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                        style="display: none;">
+                       Save Changes
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-6">
+        <!-- Profile Header -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 section-card">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-12 text-white">
+                <div class="flex items-center space-x-8">
+                    <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                        <img id="profilePhoto" src="" alt="Profile Photo" class="w-full h-full object-cover"
+                            style="display: none;">
+                        <div id="profilePhotoPlaceholder" class="text-6xl text-gray-400">👤</div>
+                    </div>
+                    <div class="flex-1">
+                        <h1 class="text-4xl font-bold mb-2 editable" data-field="name">Student Name</h1>
+                        <p class="text-xl opacity-90 mb-1 editable" data-field="rollNumber">Roll Number</p>
+                        <p class="text-lg opacity-80 editable" data-field="branchYear">Branch & Year</p>
+                        
+                    </div>
+                </div>
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
             </div>
             <div class="contact-item">
               <span>📱</span>
@@ -521,6 +882,7 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <!-- Academic Information -->
         <div class="section-header">
           🎓 Academic Information
@@ -673,6 +1035,344 @@
         <!-- Additional Information -->
         <div class="section-header">
           ⭐ Additional Information
+=======
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Contact
+                        Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-blue-600 text-xl"></span>
+                            <div>
+                                <p class="text-sm text-gray-600">Email</p>
+                                <p class="font-medium editable" data-field="email">email@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-blue-600 text-xl"></span>
+                            <div>
+                                <p class="text-sm text-gray-600">Mobile</p>
+                                <p class="font-medium editable" data-field="mobile">+91 XXXXXXXXXX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2">Skills</h2>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Technical Skills</h3>
+                            <div id="technicalSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span
+                                    class="skill-tag bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span
+                                    class="skill-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Java</span>
+                            </div>
+                            <button onclick="addSkill('technical')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Skill</button>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Tools & Platforms</h3>
+                            <div id="toolsSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Git</span>
+                                <span
+                                    class="skill-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                            </div>
+                            <button onclick="addSkill('tools')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Tool</button>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Core Subjects</h3>
+                            <div id="coreSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Data
+                                    Structures</span>
+                                <span
+                                    class="skill-tag bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">DBMS</span>
+                            </div>
+                            <button onclick="addSkill('core')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Subject</button>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Soft Skills</h3>
+                            <div id="softSkills" class="flex flex-wrap gap-2">
+                                <span
+                                    class="skill-tag bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Leadership</span>
+                                <span
+                                    class="skill-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Communication</span>
+                            </div>
+                            <button onclick="addSkill('soft')"
+                                class="mt-2 text-blue-600 hover:text-blue-800 text-sm edit-only"
+                                style="display: none;">+ Add Skill</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2"> Projects</h2>
+                        <button onclick="addProject()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Project</button>
+                    </div>
+                    <div id="projectsList" class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4 py-2">
+                            <h3 class="font-bold text-lg editable" data-field="project1Title">E-Commerce Website</h3>
+                            <p class="text-gray-600 mb-2 editable" data-field="project1Desc">Full-stack web application
+                                with user authentication and payment integration</p>
+                            <p class="text-sm text-blue-600 mb-2 editable" data-field="project1Tech">React, Node.js,
+                                MongoDB, Stripe API</p>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable"
+                                data-field="project1Link"> View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internships Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2">Internships &
+                            Experience</h2>
+                        <button onclick="addInternship()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Experience</button>
+                    </div>
+                    <div id="internshipsList" class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg editable" data-field="intern1Company">Tech Solutions Inc.</h3>
+                            <p class="text-blue-600 font-medium editable" data-field="intern1Role">Software Development
+                                Intern</p>
+                            <p class="text-gray-600 text-sm mb-2 editable" data-field="intern1Duration">June 2023 -
+                                August 2023</p>
+                            <p class="text-gray-700 editable" data-field="intern1Desc">Developed REST APIs and worked on
+                                frontend components using React</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2"> Certifications
+                        </h2>
+                        <button onclick="addCertification()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Certification</button>
+                    </div>
+                    <div id="certificationsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 p-4 rounded-lg">
+                            <h3 class="font-bold editable" data-field="cert1Name">AWS Cloud Practitioner</h3>
+                            <p class="text-gray-600 text-sm editable" data-field="cert1Provider">Amazon Web Services</p>
+                            <p class="text-blue-600 text-sm editable" data-field="cert1Date">Valid until: Dec 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Upload -->
+                    <div class="mt-6 edit-only" style="display: none;">
+                        <h3 class="font-semibold mb-3">Upload Certificates</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('certUpload').click()">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2"></div>
+                                <p class="text-gray-600">Click to upload certificates</p>
+                                <p class="text-xs text-gray-500">PDF, JPG, PNG (Max 5MB each)</p>
+                            </div>
+                        </div>
+                        <input type="file" id="certUpload" multiple accept=".pdf,.jpg,.jpeg,.png" style="display: none;"
+                            onchange="handleCertUpload(event)">
+                    </div>
+                </div>
+
+                <!-- Achievements Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-2"> Achievements
+                        </h2>
+                        <button onclick="addAchievement()"
+                            class="edit-only bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+                            style="display: none;">+ Add Achievement</button>
+                    </div>
+                    <div id="achievementsList" class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl"></span>
+                            <div>
+                                <p class="font-medium editable" data-field="achieve1">Winner - College Hackathon 2023
+                                </p>
+                                <p class="text-sm text-gray-600 editable" data-field="achieve1Desc">Built an AI-powered
+                                    chatbot for student queries</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- Academic Details -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Academic
+                        Details</h2>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2">Current CGPA</h3>
+                            <p class="text-lg font-bold text-blue-600 editable" data-field="cgpa">8.5</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2">10th Grade</h3>
+                            <p class="text-lg font-bold text-green-600 editable" data-field="tenth">95%</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2">12th Grade</h3>
+                            <p class="text-lg font-bold text-purple-600 editable" data-field="twelfth">88%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resume & Documents -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Documents</h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold mb-2">Resume</h3>
+                            <div id="resumeSection"
+                                class="border-2 border-dashed border-gray-300 p-4 rounded-lg text-center">
+                                <div class="text-3xl mb-2"></div>
+                                <p class="text-gray-600 mb-2">No resume uploaded</p>
+                                <button onclick="document.getElementById('resumeUpload').click()"
+                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                                    Upload Resume
+                                </button>
+                            </div>
+                            <input type="file" id="resumeUpload" accept=".pdf" style="display: none;"
+                                onchange="handleResumeUpload(event)">
+                        </div>
+
+                        <div id="uploadedResume" style="display: none;" class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-2xl"></span>
+                                    <div>
+                                        <p class="font-medium" id="resumeName">Resume.pdf</p>
+                                        <p class="text-sm text-gray-600" id="resumeSize">Size: 2.5 MB</p>
+                                    </div>
+                                </div>
+                                <div class="space-x-2">
+                                    <button onclick="downloadResume()"
+                                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
+                                        Download
+                                    </button>
+                                    <button onclick="removeResume()"
+                                        class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linked Accounts -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Linked Accounts
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">LinkedIn</span>
+                            </div>
+                            <input type="url" class="editable-input border-none bg-transparent text-right text-blue-600"
+                                data-field="linkedin" placeholder="Profile URL" style="display: none;">
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="linkedin">Not
+                                linked</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">GitHub</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="github">Not
+                                linked</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">LeetCode</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="leetcode">Not
+                                linked</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-xl"></span>
+                                <span class="font-medium">HackerRank</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline text-sm editable"
+                                data-field="hackerrank">Not linked</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placement Preferences -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Placement
+                        Preferences</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Dream Role</label>
+                            <p class="editable bg-gray-50 p-2 rounded" data-field="dreamRole">Software Engineer</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Job Preference</label>
+                            <p class="editable bg-gray-50 p-2 rounded" data-field="jobPreference">IT</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Ready to Relocate</label>
+                            <p class="editable bg-gray-50 p-2 rounded" data-field="relocate">Yes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placement Dashboard -->
+                <div class="bg-white rounded-xl shadow-lg p-6 section-card">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-2"> Placement
+                        Dashboard</h2>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-800">Applications Sent</h3>
+                            <p class="text-2xl font-bold text-blue-600">12</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-yellow-800">Interviews Scheduled</h3>
+                            <p class="text-2xl font-bold text-yellow-600">3</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-green-800">Offers Received</h3>
+                            <p class="text-2xl font-bold text-green-600">1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
         </div>
         <div class="form-grid">
           <div class="field col-12">
@@ -701,6 +1401,7 @@
         </div>
       </form>
     </div>
+<<<<<<< HEAD
   </div>
 
   <script>
@@ -796,11 +1497,91 @@
         const reader = new FileReader();
         reader.onload = function(e) {
           preview.innerHTML = <img src="${e.target.result}" alt="Profile Photo">;
+=======
+<!-- 🔹 Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Important Links</h3>
+      <ul>
+        <li><a href="#">Newsletters</a></li>
+        <li><a href="#">AICTE EoA & LoI</a></li>
+        <li><a href="#">RTMNU Affiliation</a></li>
+        <li><a href="#">NIRF Reports</a></li>
+        <li><a href="#">Mandatory Disclosures</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>📞 +91 9420410225</p>
+      <p>📞 +91 8055935567</p>
+      <p>📞 +91 7768929237</p>
+      <p>📞 +91 8422008886</p>
+      <p>✉️ office@cumminscollege.edu.in</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>City Office</h3>
+      <p>Maharshi Karve Stree Shikshan Samstha's</p>
+      <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
+      <p>Nagpur - 440015</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Institute Address</h3>
+      <p>
+        <a href="https://www.google.com/maps/place/Cummins+College+Of+Engineering+For+Women,+Nagpur/@21.1220581,78.9468932,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd4957a9f9a7d8b:0x5d2e5d0b505d1e58!8m2!3d21.1220581!4d78.9468932!16s%2Fg%2F11h8y2sk53?entry=ttu" 
+           target="_blank" class="map-link">
+          Cummins College Of Engineering For Women, Nagpur,<br>
+          3X9H+JPW, Tal, Mouje, Gupchup, Sukali, Hingna,<br>
+          Maharashtra 441110
+        </a>
+      </p>
+
+      <h3>Social Connect</h3>
+      <div class="social-icons">
+        <p><a href="https://www.facebook.com/CCOEWNAGPUR/" target="_blank">
+          <img src="facebbok.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/ccoewnagpur/?hl=en" target="_blank">
+          <img src="insta.svg" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/school/cummins-college-of-engineering-for-women-mauja/?originalSubdomain=in" target="_blank">
+          <img src="leankdean.jpg" alt="LinkedIn">
+        </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script>
+        let isEditMode = false;
+        let profileData = {
+            name: 'Student Name',
+            rollNumber: 'Roll Number',
+            branchYear: 'Branch & Year',
+            email: 'email@example.com',
+            mobile: '+91 XXXXXXXXXX',
+            cgpa: '8.5',
+            tenth: '95%',
+            twelfth: '88%',
+            linkedin: 'Not linked',
+            github: 'Not linked',
+            leetcode: 'Not linked',
+            hackerrank: 'Not linked',
+            dreamRole: 'Software Engineer',
+            jobPreference: 'IT',
+            relocate: 'Yes'
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
         };
         reader.readAsDataURL(file);
       }
     });
 
+<<<<<<< HEAD
     document.getElementById('resumeInput').addEventListener('change', function(e) {
       const file = e.target.files[0];
       const upload = document.getElementById('resumeUpload');
@@ -868,18 +1649,167 @@
           fieldContainer.classList.add('error');
           if (errorMsg) errorMsg.textContent = 'Please enter a valid email address';
           return false;
+=======
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const editBtn = document.getElementById('editBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const editOnlyElements = document.querySelectorAll('.edit-only');
+            const editableElements = document.querySelectorAll('.editable');
+
+            if (isEditMode) {
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'block';
+                editOnlyElements.forEach(el => el.style.display = 'block');
+                editableElements.forEach(el => {
+                    el.classList.add('edit-mode');
+                    el.contentEditable = true;
+                    el.style.cursor = 'text';
+                });
+            } else {
+                editBtn.style.display = 'block';
+                saveBtn.style.display = 'none';
+                editOnlyElements.forEach(el => el.style.display = 'none');
+                editableElements.forEach(el => {
+                    el.classList.remove('edit-mode');
+                    el.contentEditable = false;
+                    el.style.cursor = 'default';
+                });
+            }
+        }
+
+        function saveProfile() {
+            // Collect all editable data
+            const editableElements = document.querySelectorAll('.editable');
+            editableElements.forEach(el => {
+                const field = el.getAttribute('data-field');
+                if (field) {
+                    profileData[field] = el.textContent.trim();
+                }
+            });
+
+            // Save to localStorage
+            localStorage.setItem('studentProfile', JSON.stringify(profileData));
+
+            toggleEditMode();
+            alert('Profile saved successfully! 💾');
+        }
+
+        function addSkill(category) {
+            const skillText = prompt(`Enter new ${category} skill:`);
+            if (skillText) {
+                const container = document.getElementById(`${category}Skills`);
+                const colors = {
+                    technical: 'bg-blue-100 text-blue-800',
+                    tools: 'bg-orange-100 text-orange-800',
+                    core: 'bg-indigo-100 text-indigo-800',
+                    soft: 'bg-yellow-100 text-yellow-800'
+                };
+
+                const skillTag = document.createElement('span');
+                skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
+                skillTag.textContent = skillText;
+                skillTag.onclick = () => {
+                    if (isEditMode && confirm('Remove this skill?')) {
+                        skillTag.remove();
+                    }
+                };
+                container.appendChild(skillTag);
+            }
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
         }
       }
 
+<<<<<<< HEAD
       if (field.type === 'tel' && value) {
         const phoneRegex = /^[6-9]\d{9}$/;
         if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
           fieldContainer.classList.add('error');
           if (errorMsg) errorMsg.textContent = 'Please enter a valid 10-digit mobile number';
           return false;
+=======
+        function addProject() {
+            const projectsContainer = document.getElementById('projectsList');
+            const projectCount = projectsContainer.children.length + 1;
+
+            const projectDiv = document.createElement('div');
+            projectDiv.className = 'border-l-4 border-blue-500 pl-4 py-2';
+            projectDiv.innerHTML = `
+                <h3 class="font-bold text-lg editable" data-field="project${projectCount}Title">New Project</h3>
+                <p class="text-gray-600 mb-2 editable" data-field="project${projectCount}Desc">Project description</p>
+                <p class="text-sm text-blue-600 mb-2 editable" data-field="project${projectCount}Tech">Tech stack</p>
+                <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="project${projectCount}Link">🔗 Project Link</a>
+                <button onclick="this.parentElement.remove()" class="ml-4 text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            projectsContainer.appendChild(projectDiv);
+        }
+
+        function addInternship() {
+            const container = document.getElementById('internshipsList');
+            const count = container.children.length + 1;
+
+            const internDiv = document.createElement('div');
+            internDiv.className = 'bg-gray-50 p-4 rounded-lg';
+            internDiv.innerHTML = `
+                <h3 class="font-bold text-lg editable" data-field="intern${count}Company">Company Name</h3>
+                <p class="text-blue-600 font-medium editable" data-field="intern${count}Role">Role</p>
+                <p class="text-gray-600 text-sm mb-2 editable" data-field="intern${count}Duration">Duration</p>
+                <p class="text-gray-700 editable" data-field="intern${count}Desc">Description</p>
+                <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            container.appendChild(internDiv);
+        }
+
+        function addCertification() {
+            const container = document.getElementById('certificationsList');
+            const count = container.children.length + 1;
+
+            const certDiv = document.createElement('div');
+            certDiv.className = 'border border-gray-200 p-4 rounded-lg';
+            certDiv.innerHTML = `
+                <h3 class="font-bold editable" data-field="cert${count}Name">Certification Name</h3>
+                <p class="text-gray-600 text-sm editable" data-field="cert${count}Provider">Provider</p>
+                <p class="text-blue-600 text-sm editable" data-field="cert${count}Date">Date</p>
+                <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            container.appendChild(certDiv);
+        }
+
+        function addAchievement() {
+            const container = document.getElementById('achievementsList');
+            const count = container.children.length + 1;
+
+            const achieveDiv = document.createElement('div');
+            achieveDiv.className = 'flex items-center space-x-3';
+            achieveDiv.innerHTML = `
+                <span class="text-2xl">🏅</span>
+                <div class="flex-1">
+                    <p class="font-medium editable" data-field="achieve${count}">Achievement Title</p>
+                    <p class="text-sm text-gray-600 editable" data-field="achieve${count}Desc">Description</p>
+                </div>
+                <button onclick="this.parentElement.remove()" class="text-red-600 hover:text-red-800 text-sm">Remove</button>
+            `;
+            container.appendChild(achieveDiv);
+        }
+
+        function handleResumeUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                document.getElementById('resumeSection').style.display = 'none';
+                document.getElementById('uploadedResume').style.display = 'block';
+                document.getElementById('resumeName').textContent = file.name;
+                document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
+
+                // Store file reference
+                profileData.resumeFile = file;
+            } else {
+                alert('Please upload a PDF file only.');
+            }
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
         }
       }
 
+<<<<<<< HEAD
       return true;
     }
 
@@ -893,9 +1823,22 @@
       fields.forEach(field => {
         if (!validateField(field)) {
           isValid = false;
+=======
+        function handleCertUpload(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => {
+                if (file.size <= 5 * 1024 * 1024) { // 5MB limit
+                    console.log(`Uploaded certificate: ${file.name}`);
+                    // Here you would typically upload to a server
+                } else {
+                    alert(`File ${file.name} is too large. Maximum size is 5MB.`);
+                }
+            });
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
         }
       });
 
+<<<<<<< HEAD
       if (!isValid) {
         const firstError = form.querySelector('.field.error');
         if (firstError) {
@@ -934,4 +1877,96 @@
     });
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973035ed63444938',t:'MTc1NTg0MzA2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+=======
+        function downloadResume() {
+            if (profileData.resumeFile) {
+                const url = URL.createObjectURL(profileData.resumeFile);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = profileData.resumeFile.name;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        }
+
+        function removeResume() {
+            if (confirm('Are you sure you want to remove the resume?')) {
+                document.getElementById('resumeSection').style.display = 'block';
+                document.getElementById('uploadedResume').style.display = 'none';
+                profileData.resumeFile = null;
+            }
+        }
+
+        function exportProfile() {
+            const profileHTML = document.documentElement.outerHTML;
+            const blob = new Blob([profileHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'student_profile.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Load profile data from localStorage on page load
+        window.addEventListener('load', function () {
+            const savedData = localStorage.getItem('studentProfile');
+            if (savedData) {
+                profileData = { ...profileData, ...JSON.parse(savedData) };
+
+                // Update UI with saved data
+                Object.keys(profileData).forEach(key => {
+                    const element = document.querySelector(`[data-field="${key}"]`);
+                    if (element && profileData[key]) {
+                        element.textContent = profileData[key];
+                    }
+                });
+            }
+
+            // Load data from info.html if available
+            const infoData = localStorage.getItem('studentInfo');
+            if (infoData) {
+                const info = JSON.parse(infoData);
+                if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
+                if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
+                if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
+                if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
+                if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
+                if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
+                if (info.tenth) document.querySelector('[data-field="tenth"]').textContent = info.tenth;
+                if (info.twelfth) document.querySelector('[data-field="twelfth"]').textContent = info.twelfth;
+                if (info.linkedin) document.querySelector('[data-field="linkedin"]').textContent = info.linkedin;
+
+                // Load photo if available
+                if (info.photo) {
+                    document.getElementById('profilePhoto').src = info.photo;
+                    document.getElementById('profilePhoto').style.display = 'block';
+                    document.getElementById('profilePhotoPlaceholder').style.display = 'none';
+                }
+            }
+        });
+
+        /* ==============================
+   Sidebar Functions
+============================== */
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        // Add click handlers for skill tags in edit mode
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('skill-tag') && isEditMode) {
+                if (confirm('Remove this skill?')) {
+                    e.target.remove();
+                }
+            }
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97323d7685ba41b3',t:'MTc1NTg2NDM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+>>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
 </html>
