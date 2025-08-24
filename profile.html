@@ -825,9 +825,9 @@
     }
 
     function addSkill(category) {
-        const skillText = prompt(Enter new ${category} skill:);
+        const skillText = prompt(`Enter new ${category} skill:`);
         if (skillText) {
-            const container = document.getElementById(${category}Skills);
+            const container = document.getElementById(`${category}Skills`);
             const colors = {
                 technical: 'bg-blue-100 text-blue-800',
                 tools: 'bg-orange-100 text-orange-800',
@@ -836,7 +836,7 @@
             };
 
             const skillTag = document.createElement('span');
-            skillTag.className = skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm;
+            skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
             skillTag.textContent = skillText;
             skillTag.onclick = () => {
                 if (isEditMode && confirm('Remove this skill?')) {
@@ -917,7 +917,7 @@
             document.getElementById('resumeSection').style.display = 'none';
             document.getElementById('uploadedResume').style.display = 'block';
             document.getElementById('resumeName').textContent = file.name;
-            document.getElementById('resumeSize').textContent = Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB;
+            document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
 
             // Store file reference
             profileData.resumeFile = file;
@@ -930,10 +930,10 @@
         const files = Array.from(event.target.files);
         files.forEach(file => {
             if (file.size <= 5 * 1024 * 1024) { // 5MB limit
-                console.log(Uploaded certificate: ${file.name});
+                console.log(`Uploaded certificate: ${file.name}`);
                 // Here you would typically upload to a server
             } else {
-                alert(File ${file.name} is too large. Maximum size is 5MB.);
+                alert(`File ${file.name} is too large. Maximum size is 5MB.`);
             }
         });
     }
@@ -976,7 +976,7 @@
 
             // Update UI with saved data
             Object.keys(profileData).forEach(key => {
-                const element = document.querySelector([data-field="${key}"]);
+                const element = document.querySelector(`[data-field="${key}"]`);
                 if (element && profileData[key]) {
                     element.textContent = profileData[key];
                 }
@@ -989,7 +989,7 @@
             const info = JSON.parse(infoData);
             if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
             if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
-            if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = ${info.branch} - ${info.year};
+            if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
             if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
             if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
             if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
@@ -1025,6 +1025,7 @@
         }
     });
 </script>
+
 </body>
 
 </html>
