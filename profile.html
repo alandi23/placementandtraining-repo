@@ -2,436 +2,6 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Training & Placement Portal — Student Profile</title>
-  <style>
-    :root{
-      --primary: #1e3a8a;         /* royal blue */
-      --primary-light: #3b82f6;   /* blue-500 */
-      --primary-dark: #1e40af;    /* blue-700 */
-      --secondary: #f8fafc;       /* slate-50 */
-      --accent: #10b981;          /* emerald-500 */
-      --text: #1f2937;            /* gray-800 */
-      --text-light: #6b7280;      /* gray-500 */
-      --white: #ffffff;
-      --border: #e5e7eb;          /* gray-200 */
-      --shadow: rgba(30, 58, 138, 0.1);
-      --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin: 0; 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text); 
-      background: var(--gradient);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-
-    /* Header */
-    .header {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px var(--shadow);
-    }
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--primary);
-    }
-    .brand .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      background: var(--gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* Profile Header */
-    .profile-header {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 40px var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .profile-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: var(--gradient);
-    }
-    .profile-info {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 30px;
-      align-items: center;
-    }
-    .profile-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 20px;
-      background: var(--secondary);
-      border: 4px solid var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      color: var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .profile-details h1 {
-      margin: 0 0 10px;
-      font-size: 32px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .profile-details .subtitle {
-      font-size: 18px;
-      color: var(--text-light);
-      margin-bottom: 15px;
-    }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-light);
-    }
-
-    /* Form Grid */
-    .form-container {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 40px var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .form-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: var(--gradient);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 25px;
-      margin-bottom: 25px;
-    }
-
-    /* Section Headers */
-    .section-header {
-      grid-column: span 12;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 30px 0 20px 0;
-      padding-bottom: 15px;
-      border-bottom: 3px solid var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      position: relative;
-    }
-    .section-header:first-child {
-      margin-top: 0;
-    }
-    .section-header::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--accent);
-    }
-
-    /* Form Fields */
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .field.col-12 { grid-column: span 12; }
-    .field.col-6 { grid-column: span 6; }
-    .field.col-4 { grid-column: span 4; }
-    .field.col-3 { grid-column: span 3; }
-
-    .label {
-      font-weight: 600;
-      color: var(--text);
-      font-size: 14px;
-    }
-    .required::after {
-      content: " *";
-      color: #ef4444;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      background: var(--secondary);
-      color: var(--text);
-      outline: none;
-      transition: all 0.3s ease;
-      font-size: 14px;
-      font-family: inherit;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
-      background: var(--white);
-    }
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    /* Special Fields */
-    .skills-container, .projects-container, .internships-container, .achievements-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .skill-item, .project-item, .internship-item, .achievement-item {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .skill-item input, .project-item input, .internship-item input, .achievement-item input {
-      flex: 1;
-    }
-    .add-btn, .remove-btn {
-      padding: 8px 12px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .add-btn {
-      background: var(--accent);
-      color: white;
-    }
-    .add-btn:hover {
-      background: #059669;
-      transform: translateY(-1px);
-    }
-    .remove-btn {
-      background: #ef4444;
-      color: white;
-    }
-    .remove-btn:hover {
-      background: #dc2626;
-    }
-
-    /* File Upload */
-    .file-upload {
-      position: relative;
-      display: inline-block;
-      width: 100%;
-    }
-    .file-upload input[type="file"] {
-      position: absolute;
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-    }
-    .file-upload-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 20px;
-      border: 2px dashed var(--border);
-      border-radius: 12px;
-      background: var(--secondary);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    .file-upload-label:hover {
-      border-color: var(--primary);
-      background: rgba(30, 58, 138, 0.05);
-    }
-    .file-upload.has-file .file-upload-label {
-      border-color: var(--accent);
-      background: rgba(16, 185, 129, 0.05);
-      color: var(--accent);
-    }
-
-    /* Buttons */
-    .btn {
-      padding: 16px 32px;
-      border: 2px solid var(--primary);
-      border-radius: 12px;
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
-    }
-    .btn.secondary {
-      background: transparent;
-      color: var(--primary);
-    }
-    .btn.secondary:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 40px;
-      padding-top: 30px;
-      border-top: 2px solid var(--border);
-    }
-
-    /* Success Message */
-    .success-banner {
-      background: linear-gradient(90deg, var(--accent), #059669);
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .field.col-6, .field.col-4, .field.col-3 {
-        grid-column: span 12;
-      }
-      .profile-info {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 20px;
-      }
-      .form-container, .profile-header {
-        padding: 25px;
-        margin: 0 10px;
-      }
-      .form-actions {
-        flex-direction: column;
-      }
-      .skill-item, .project-item, .internship-item, .achievement-item {
-        flex-direction: column;
-        align-items: stretch;
-      }
-    }
-
-    /* Error States */
-    .field.error input, .field.error select, .field.error textarea {
-      border-color: #ef4444;
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-    }
-    .error-msg {
-      color: #ef4444;
-      font-size: 12px;
-      margin-top: 4px;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <div class="header-content">
-      <div class="brand">
-        <div class="logo">T&P</div>
-        <span>Training & Placement Portal</span>
-      </div>
-      <div style="color: var(--text-light); font-weight: 500;">Student Profile</div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="profile-header">
-      <div class="profile-info">
-        <div class="profile-photo" id="profilePhotoPreview">
-          👤
-        </div>
-        <div class="profile-details">
-          <h1 id="displayName">Your Name</h1>
-          <div class="subtitle" id="displayDepartment">Department • Batch Year</div>
-          <div class="contact-info">
-            <div class="contact-item">
-              <span>📧</span>
-              <span id="displayEmail">your.email@college.edu</span>
-=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Profile - Enhanced</title>
@@ -789,253 +359,9 @@
                         
                     </div>
                 </div>
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
             </div>
-            <div class="contact-item">
-              <span>📱</span>
-              <span id="displayMobile">+91 XXXXX XXXXX</span>
-            </div>
-          </div>
-        </div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <span>💼</span>
-            <span id="displayLinkedin">LinkedIn Profile</span>
-          </div>
-          <div class="contact-item">
-            <span>💻</span>
-            <span id="displayGithub">GitHub/Portfolio</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="success-banner" id="successBanner">
-      <span style="font-size: 24px;">✅</span>
-      <span>Your profile has been successfully updated!</span>
-    </div>
-
-    <div class="form-container">
-      <form id="profileForm">
-        <!-- Personal Information -->
-        <div class="section-header">
-          👤 Personal Information
-        </div>
-        <div class="form-grid">
-          <div class="field col-6">
-            <label class="label required">Full Name</label>
-            <input type="text" name="name" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-6">
-            <label class="label required">Email Address</label>
-            <input type="email" name="email" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-4">
-            <label class="label required">Department</label>
-            <select name="department" required>
-              <option value="">Select Department</option>
-              <option value="Computer Science & Engineering">Computer Science & Engineering</option>
-              <option value="Information Technology">Information Technology</option>
-              <option value="Electronics & Communication">Electronics & Communication</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
-              <option value="Civil Engineering">Civil Engineering</option>
-              <option value="Electrical Engineering">Electrical Engineering</option>
-            </select>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-4">
-            <label class="label required">Batch</label>
-            <select name="batch" required>
-              <option value="">Select Batch</option>
-              <option value="2021-2025">2021-2025</option>
-              <option value="2022-2026">2022-2026</option>
-              <option value="2023-2027">2023-2027</option>
-              <option value="2024-2028">2024-2028</option>
-            </select>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-4">
-            <label class="label required">Mobile Number</label>
-            <input type="tel" name="mobile" required>
-            <div class="error-msg"></div>
-          </div>
-
-          <div class="field col-12">
-            <label class="label required">Career Objective</label>
-            <textarea name="objective" required placeholder="Write your career objective in 1-2 lines..."></textarea>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-12">
-            <label class="label">Profile Photo</label>
-            <div class="file-upload" id="photoUpload">
-              <input type="file" name="profilePhoto" accept="image/*" id="photoInput">
-              <div class="file-upload-label">
-                <span style="font-size: 24px;">📷</span>
-                <div>
-                  <div style="font-weight: 600;">Upload Profile Photo</div>
-                  <div style="font-size: 12px; color: var(--text-light);">JPG, PNG (Max 2MB)</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-<<<<<<< HEAD
-        <!-- Academic Information -->
-        <div class="section-header">
-          🎓 Academic Information
-        </div>
-        <div class="form-grid">
-          <div class="field col-3">
-            <label class="label required">B.Tech Score (CGPA)</label>
-            <input type="number" name="btechScore" step="0.01" min="0" max="10" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-3">
-            <label class="label required">10th Aggregate (%)</label>
-            <input type="number" name="tenthScore" step="0.01" min="0" max="100" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-3">
-            <label class="label required">12th/Diploma Aggregate (%)</label>
-            <input type="number" name="twelfthScore" step="0.01" min="0" max="100" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-3">
-            <label class="label required">Year Gap (if any)</label>
-            <input type="number" name="yearGap" min="0" max="5" value="0" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-6">
-            <label class="label required">Current Backlogs</label>
-            <input type="number" name="currentBacklogs" min="0" value="0" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-6">
-            <label class="label required">History of Backlogs</label>
-            <input type="number" name="historyBacklogs" min="0" value="0" required>
-            <div class="error-msg"></div>
-          </div>
-          <div class="field col-12">
-            <label class="label">Resume Upload</label>
-            <div class="file-upload" id="resumeUpload">
-              <input type="file" name="resume" accept=".pdf,.doc,.docx" id="resumeInput">
-              <div class="file-upload-label">
-                <span style="font-size: 24px;">📄</span>
-                <div>
-                  <div style="font-weight: 600;">Upload Resume</div>
-                  <div style="font-size: 12px; color: var(--text-light);">PDF, DOC, DOCX (Max 5MB)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical Skills -->
-        <div class="section-header">
-          💻 Technical Skills
-        </div>
-        <div class="form-grid">
-          <div class="field col-12">
-            <label class="label">Technical Skills</label>
-            <div class="skills-container" id="skillsContainer">
-              <div class="skill-item">
-                <input type="text" placeholder="e.g., JavaScript, Python, React">
-                <button type="button" class="add-btn" onclick="addSkill()">Add</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projects -->
-        <div class="section-header">
-          🚀 Projects
-        </div>
-        <div class="form-grid">
-          <div class="field col-12">
-            <label class="label">Mini Projects</label>
-            <div class="projects-container" id="miniProjectsContainer">
-              <div class="project-item">
-                <input type="text" placeholder="Project Name">
-                <input type="text" placeholder="One-line description">
-                <button type="button" class="add-btn" onclick="addMiniProject()">Add</button>
-              </div>
-            </div>
-          </div>
-          <div class="field col-12">
-            <label class="label">Major Projects</label>
-            <div class="projects-container" id="majorProjectsContainer">
-              <div class="project-item">
-                <input type="text" placeholder="Project Name">
-                <input type="text" placeholder="One-line description">
-                <button type="button" class="add-btn" onclick="addMajorProject()">Add</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Experience -->
-        <div class="section-header">
-          💼 Experience & Training
-        </div>
-        <div class="form-grid">
-          <div class="field col-12">
-            <label class="label">Internships/Trainings</label>
-            <div class="internships-container" id="internshipsContainer">
-              <div class="internship-item">
-                <input type="text" placeholder="Company/Organization">
-                <input type="text" placeholder="Role/Training">
-                <input type="text" placeholder="Duration">
-                <button type="button" class="add-btn" onclick="addInternship()">Add</button>
-              </div>
-            </div>
-          </div>
-          <div class="field col-6">
-            <label class="label">Certifications</label>
-            <textarea name="certifications" placeholder="List your certifications..."></textarea>
-          </div>
-          <div class="field col-6">
-            <label class="label">Upload Certification Documents</label>
-            <div class="file-upload" id="certificationUpload">
-              <input type="file" name="certificationDocs" accept=".pdf" multiple id="certificationInput">
-              <div class="file-upload-label">
-                <span style="font-size: 24px;">📜</span>
-                <div>
-                  <div style="font-weight: 600;">Upload Certification PDFs</div>
-                  <div style="font-size: 12px; color: var(--text-light);">PDF files only (Multiple files allowed)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Achievements -->
-        <div class="section-header">
-          🏆 Achievements & Recognition
-        </div>
-        <div class="form-grid">
-          <div class="field col-12">
-            <label class="label">Achievements/Competitions</label>
-            <div class="achievements-container" id="achievementsContainer">
-              <div class="achievement-item">
-                <input type="text" placeholder="Achievement/Competition">
-                <input type="text" placeholder="Position/Recognition">
-                <button type="button" class="add-btn" onclick="addAchievement()">Add</button>
-              </div>
-            </div>
-          </div>
-          <div class="field col-12">
-            <label class="label">Awards & Recognitions</label>
-            <textarea name="awards" placeholder="List your awards and recognitions..."></textarea>
-          </div>
-        </div>
-
-        <!-- Additional Information -->
-        <div class="section-header">
-          ⭐ Additional Information
-=======
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Left Column -->
             <div class="lg:col-span-2 space-y-8">
@@ -1372,132 +698,8 @@
                     </div>
                 </div>
             </div>
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
         </div>
-        <div class="form-grid">
-          <div class="field col-12">
-            <label class="label">Languages Known</label>
-            <textarea name="languages" placeholder="e.g., English (Fluent), Hindi (Native), Marathi (Advanced), Sanskrit (Basic)..."></textarea>
-          </div>
-          <div class="field col-6">
-            <label class="label">Areas of Interest</label>
-            <textarea name="interests" placeholder="e.g., Web Development, Machine Learning, Data Science..."></textarea>
-          </div>
-          <div class="field col-6">
-            <label class="label">Soft Skills</label>
-            <textarea name="softSkills" placeholder="e.g., Leadership, Communication, Team Work..."></textarea>
-          </div>
-          <div class="field col-12">
-            <label class="label">Extra-Curricular Activities</label>
-            <textarea name="extraCurricular" placeholder="List your extra-curricular activities..."></textarea>
-          </div>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn" id="submitBtn">
-            <span>💾</span>
-            Save Profile
-          </button>
-        </div>
-      </form>
     </div>
-<<<<<<< HEAD
-  </div>
-
-  <script>
-    const form = document.getElementById('profileForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const successBanner = document.getElementById('successBanner');
-
-    // Dynamic field management
-    function addSkill() {
-      const container = document.getElementById('skillsContainer');
-      const newSkill = document.createElement('div');
-      newSkill.className = 'skill-item';
-      newSkill.innerHTML = `
-        <input type="text" placeholder="e.g., JavaScript, Python, React">
-        <button type="button" class="remove-btn" onclick="removeSkill(this)">Remove</button>
-      `;
-      container.appendChild(newSkill);
-    }
-
-    function removeSkill(btn) {
-      btn.parentElement.remove();
-    }
-
-    function addMiniProject() {
-      const container = document.getElementById('miniProjectsContainer');
-      const newProject = document.createElement('div');
-      newProject.className = 'project-item';
-      newProject.innerHTML = `
-        <input type="text" placeholder="Project Name">
-        <input type="text" placeholder="One-line description">
-        <button type="button" class="remove-btn" onclick="removeProject(this)">Remove</button>
-      `;
-      container.appendChild(newProject);
-    }
-
-    function addMajorProject() {
-      const container = document.getElementById('majorProjectsContainer');
-      const newProject = document.createElement('div');
-      newProject.className = 'project-item';
-      newProject.innerHTML = `
-        <input type="text" placeholder="Project Name">
-        <input type="text" placeholder="One-line description">
-        <button type="button" class="remove-btn" onclick="removeProject(this)">Remove</button>
-      `;
-      container.appendChild(newProject);
-    }
-
-    function removeProject(btn) {
-      btn.parentElement.remove();
-    }
-
-    function addInternship() {
-      const container = document.getElementById('internshipsContainer');
-      const newInternship = document.createElement('div');
-      newInternship.className = 'internship-item';
-      newInternship.innerHTML = `
-        <input type="text" placeholder="Company/Organization">
-        <input type="text" placeholder="Role/Training">
-        <input type="text" placeholder="Duration">
-        <button type="button" class="remove-btn" onclick="removeInternship(this)">Remove</button>
-      `;
-      container.appendChild(newInternship);
-    }
-
-    function removeInternship(btn) {
-      btn.parentElement.remove();
-    }
-
-    function addAchievement() {
-      const container = document.getElementById('achievementsContainer');
-      const newAchievement = document.createElement('div');
-      newAchievement.className = 'achievement-item';
-      newAchievement.innerHTML = `
-        <input type="text" placeholder="Achievement/Competition">
-        <input type="text" placeholder="Position/Recognition">
-        <button type="button" class="remove-btn" onclick="removeAchievement(this)">Remove</button>
-      `;
-      container.appendChild(newAchievement);
-    }
-
-    function removeAchievement(btn) {
-      btn.parentElement.remove();
-    }
-
-    // File upload handling
-    document.getElementById('photoInput').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      const upload = document.getElementById('photoUpload');
-      const preview = document.getElementById('profilePhotoPreview');
-      
-      if (file) {
-        upload.classList.add('has-file');
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          preview.innerHTML = <img src="${e.target.result}" alt="Profile Photo">;
-=======
 <!-- 🔹 Footer -->
 <footer class="footer">
   <div class="footer-container">
@@ -1519,7 +721,7 @@
       <p>📞 +91 8055935567</p>
       <p>📞 +91 7768929237</p>
       <p>📞 +91 8422008886</p>
-      <p>✉️ office@cumminscollege.edu.in</p>
+      <p>✉ office@cumminscollege.edu.in</p>
     </div>
 
     <div class="footer-col">
@@ -1558,415 +760,272 @@
 </footer>
 
     <script>
-        let isEditMode = false;
-        let profileData = {
-            name: 'Student Name',
-            rollNumber: 'Roll Number',
-            branchYear: 'Branch & Year',
-            email: 'email@example.com',
-            mobile: '+91 XXXXXXXXXX',
-            cgpa: '8.5',
-            tenth: '95%',
-            twelfth: '88%',
-            linkedin: 'Not linked',
-            github: 'Not linked',
-            leetcode: 'Not linked',
-            hackerrank: 'Not linked',
-            dreamRole: 'Software Engineer',
-            jobPreference: 'IT',
-            relocate: 'Yes'
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
-        };
-        reader.readAsDataURL(file);
-      }
-    });
+    let isEditMode = false;
+    let profileData = {
+        name: 'Student Name',
+        rollNumber: 'Roll Number',
+        branchYear: 'Branch & Year',
+        email: 'email@example.com',
+        mobile: '+91 XXXXXXXXXX',
+        cgpa: '8.5',
+        tenth: '95%',
+        twelfth: '88%',
+        linkedin: 'Not linked',
+        github: 'Not linked',
+        leetcode: 'Not linked',
+        hackerrank: 'Not linked',
+        dreamRole: 'Software Engineer',
+        jobPreference: 'IT',
+        relocate: 'Yes'
+    };
 
-<<<<<<< HEAD
-    document.getElementById('resumeInput').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      const upload = document.getElementById('resumeUpload');
-      const label = upload.querySelector('.file-upload-label div div:first-child');
-      
-      if (file) {
-        upload.classList.add('has-file');
-        label.textContent = Selected: ${file.name};
-      }
-    });
+    function toggleEditMode() {
+        isEditMode = !isEditMode;
+        const editBtn = document.getElementById('editBtn');
+        const saveBtn = document.getElementById('saveBtn');
+        const editOnlyElements = document.querySelectorAll('.edit-only');
+        const editableElements = document.querySelectorAll('.editable');
 
-    document.getElementById('certificationInput').addEventListener('change', function(e) {
-      const files = e.target.files;
-      const upload = document.getElementById('certificationUpload');
-      const label = upload.querySelector('.file-upload-label div div:first-child');
-      
-      if (files.length > 0) {
-        upload.classList.add('has-file');
-        label.textContent = Selected: ${files.length} file(s);
-      }
-    });
-
-    // Real-time profile updates
-    form.addEventListener('input', function(e) {
-      const name = form.querySelector('[name="name"]').value;
-      const email = form.querySelector('[name="email"]').value;
-      const mobile = form.querySelector('[name="mobile"]').value;
-      const department = form.querySelector('[name="department"]').value;
-      const batch = form.querySelector('[name="batch"]').value;
-      const linkedin = form.querySelector('[name="linkedin"]').value;
-      const github = form.querySelector('[name="github"]').value;
-
-      if (name) document.getElementById('displayName').textContent = name;
-      if (email) document.getElementById('displayEmail').textContent = email;
-      if (mobile) document.getElementById('displayMobile').textContent = mobile;
-      if (department && batch) {
-        document.getElementById('displayDepartment').textContent = ${department} • ${batch};
-      }
-      if (linkedin) {
-        document.getElementById('displayLinkedin').innerHTML = <a href="${linkedin}" target="_blank" style="color: var(--primary); text-decoration: none;">LinkedIn Profile</a>;
-      }
-      if (github) {
-        document.getElementById('displayGithub').innerHTML = <a href="${github}" target="_blank" style="color: var(--primary); text-decoration: none;">GitHub/Portfolio</a>;
-      }
-    });
-
-    // Form validation
-    function validateField(field) {
-      const value = field.value.trim();
-      const fieldContainer = field.closest('.field');
-      const errorMsg = fieldContainer.querySelector('.error-msg');
-      
-      fieldContainer.classList.remove('error');
-      if (errorMsg) errorMsg.textContent = '';
-
-      if (field.hasAttribute('required') && !value) {
-        fieldContainer.classList.add('error');
-        if (errorMsg) errorMsg.textContent = 'This field is required';
-        return false;
-      }
-
-      if (field.type === 'email' && value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          fieldContainer.classList.add('error');
-          if (errorMsg) errorMsg.textContent = 'Please enter a valid email address';
-          return false;
-=======
-        function toggleEditMode() {
-            isEditMode = !isEditMode;
-            const editBtn = document.getElementById('editBtn');
-            const saveBtn = document.getElementById('saveBtn');
-            const editOnlyElements = document.querySelectorAll('.edit-only');
-            const editableElements = document.querySelectorAll('.editable');
-
-            if (isEditMode) {
-                editBtn.style.display = 'none';
-                saveBtn.style.display = 'block';
-                editOnlyElements.forEach(el => el.style.display = 'block');
-                editableElements.forEach(el => {
-                    el.classList.add('edit-mode');
-                    el.contentEditable = true;
-                    el.style.cursor = 'text';
-                });
-            } else {
-                editBtn.style.display = 'block';
-                saveBtn.style.display = 'none';
-                editOnlyElements.forEach(el => el.style.display = 'none');
-                editableElements.forEach(el => {
-                    el.classList.remove('edit-mode');
-                    el.contentEditable = false;
-                    el.style.cursor = 'default';
-                });
-            }
-        }
-
-        function saveProfile() {
-            // Collect all editable data
-            const editableElements = document.querySelectorAll('.editable');
+        if (isEditMode) {
+            editBtn.style.display = 'none';
+            saveBtn.style.display = 'block';
+            editOnlyElements.forEach(el => el.style.display = 'block');
             editableElements.forEach(el => {
-                const field = el.getAttribute('data-field');
-                if (field) {
-                    profileData[field] = el.textContent.trim();
-                }
+                el.classList.add('edit-mode');
+                el.contentEditable = true;
+                el.style.cursor = 'text';
             });
-
-            // Save to localStorage
-            localStorage.setItem('studentProfile', JSON.stringify(profileData));
-
-            toggleEditMode();
-            alert('Profile saved successfully! 💾');
+        } else {
+            editBtn.style.display = 'block';
+            saveBtn.style.display = 'none';
+            editOnlyElements.forEach(el => el.style.display = 'none');
+            editableElements.forEach(el => {
+                el.classList.remove('edit-mode');
+                el.contentEditable = false;
+                el.style.cursor = 'default';
+            });
         }
-
-        function addSkill(category) {
-            const skillText = prompt(`Enter new ${category} skill:`);
-            if (skillText) {
-                const container = document.getElementById(`${category}Skills`);
-                const colors = {
-                    technical: 'bg-blue-100 text-blue-800',
-                    tools: 'bg-orange-100 text-orange-800',
-                    core: 'bg-indigo-100 text-indigo-800',
-                    soft: 'bg-yellow-100 text-yellow-800'
-                };
-
-                const skillTag = document.createElement('span');
-                skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
-                skillTag.textContent = skillText;
-                skillTag.onclick = () => {
-                    if (isEditMode && confirm('Remove this skill?')) {
-                        skillTag.remove();
-                    }
-                };
-                container.appendChild(skillTag);
-            }
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
-        }
-      }
-
-<<<<<<< HEAD
-      if (field.type === 'tel' && value) {
-        const phoneRegex = /^[6-9]\d{9}$/;
-        if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
-          fieldContainer.classList.add('error');
-          if (errorMsg) errorMsg.textContent = 'Please enter a valid 10-digit mobile number';
-          return false;
-=======
-        function addProject() {
-            const projectsContainer = document.getElementById('projectsList');
-            const projectCount = projectsContainer.children.length + 1;
-
-            const projectDiv = document.createElement('div');
-            projectDiv.className = 'border-l-4 border-blue-500 pl-4 py-2';
-            projectDiv.innerHTML = `
-                <h3 class="font-bold text-lg editable" data-field="project${projectCount}Title">New Project</h3>
-                <p class="text-gray-600 mb-2 editable" data-field="project${projectCount}Desc">Project description</p>
-                <p class="text-sm text-blue-600 mb-2 editable" data-field="project${projectCount}Tech">Tech stack</p>
-                <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="project${projectCount}Link">🔗 Project Link</a>
-                <button onclick="this.parentElement.remove()" class="ml-4 text-red-600 hover:text-red-800 text-sm">Remove</button>
-            `;
-            projectsContainer.appendChild(projectDiv);
-        }
-
-        function addInternship() {
-            const container = document.getElementById('internshipsList');
-            const count = container.children.length + 1;
-
-            const internDiv = document.createElement('div');
-            internDiv.className = 'bg-gray-50 p-4 rounded-lg';
-            internDiv.innerHTML = `
-                <h3 class="font-bold text-lg editable" data-field="intern${count}Company">Company Name</h3>
-                <p class="text-blue-600 font-medium editable" data-field="intern${count}Role">Role</p>
-                <p class="text-gray-600 text-sm mb-2 editable" data-field="intern${count}Duration">Duration</p>
-                <p class="text-gray-700 editable" data-field="intern${count}Desc">Description</p>
-                <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
-            `;
-            container.appendChild(internDiv);
-        }
-
-        function addCertification() {
-            const container = document.getElementById('certificationsList');
-            const count = container.children.length + 1;
-
-            const certDiv = document.createElement('div');
-            certDiv.className = 'border border-gray-200 p-4 rounded-lg';
-            certDiv.innerHTML = `
-                <h3 class="font-bold editable" data-field="cert${count}Name">Certification Name</h3>
-                <p class="text-gray-600 text-sm editable" data-field="cert${count}Provider">Provider</p>
-                <p class="text-blue-600 text-sm editable" data-field="cert${count}Date">Date</p>
-                <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
-            `;
-            container.appendChild(certDiv);
-        }
-
-        function addAchievement() {
-            const container = document.getElementById('achievementsList');
-            const count = container.children.length + 1;
-
-            const achieveDiv = document.createElement('div');
-            achieveDiv.className = 'flex items-center space-x-3';
-            achieveDiv.innerHTML = `
-                <span class="text-2xl">🏅</span>
-                <div class="flex-1">
-                    <p class="font-medium editable" data-field="achieve${count}">Achievement Title</p>
-                    <p class="text-sm text-gray-600 editable" data-field="achieve${count}Desc">Description</p>
-                </div>
-                <button onclick="this.parentElement.remove()" class="text-red-600 hover:text-red-800 text-sm">Remove</button>
-            `;
-            container.appendChild(achieveDiv);
-        }
-
-        function handleResumeUpload(event) {
-            const file = event.target.files[0];
-            if (file && file.type === 'application/pdf') {
-                document.getElementById('resumeSection').style.display = 'none';
-                document.getElementById('uploadedResume').style.display = 'block';
-                document.getElementById('resumeName').textContent = file.name;
-                document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
-
-                // Store file reference
-                profileData.resumeFile = file;
-            } else {
-                alert('Please upload a PDF file only.');
-            }
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
-        }
-      }
-
-<<<<<<< HEAD
-      return true;
     }
 
-    // Form submission
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
-      let isValid = true;
-      
-      fields.forEach(field => {
-        if (!validateField(field)) {
-          isValid = false;
-=======
-        function handleCertUpload(event) {
-            const files = Array.from(event.target.files);
-            files.forEach(file => {
-                if (file.size <= 5 * 1024 * 1024) { // 5MB limit
-                    console.log(`Uploaded certificate: ${file.name}`);
-                    // Here you would typically upload to a server
-                } else {
-                    alert(`File ${file.name} is too large. Maximum size is 5MB.`);
+    function saveProfile() {
+        // Collect all editable data
+        const editableElements = document.querySelectorAll('.editable');
+        editableElements.forEach(el => {
+            const field = el.getAttribute('data-field');
+            if (field) {
+                profileData[field] = el.textContent.trim();
+            }
+        });
+
+        // Save to localStorage
+        localStorage.setItem('studentProfile', JSON.stringify(profileData));
+
+        toggleEditMode();
+        alert('Profile saved successfully! 💾');
+    }
+
+    function addSkill(category) {
+        const skillText = prompt(`Enter new ${category} skill:`);
+        if (skillText) {
+            const container = document.getElementById(`${category}Skills`);
+            const colors = {
+                technical: 'bg-blue-100 text-blue-800',
+                tools: 'bg-orange-100 text-orange-800',
+                core: 'bg-indigo-100 text-indigo-800',
+                soft: 'bg-yellow-100 text-yellow-800'
+            };
+
+            const skillTag = document.createElement('span');
+            skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
+            skillTag.textContent = skillText;
+            skillTag.onclick = () => {
+                if (isEditMode && confirm('Remove this skill?')) {
+                    skillTag.remove();
                 }
-            });
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
+            };
+            container.appendChild(skillTag);
         }
-      });
+    }
 
-<<<<<<< HEAD
-      if (!isValid) {
-        const firstError = form.querySelector('.field.error');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    function addProject() {
+        const projectsContainer = document.getElementById('projectsList');
+        const projectCount = projectsContainer.children.length + 1;
+
+        const projectDiv = document.createElement('div');
+        projectDiv.className = 'border-l-4 border-blue-500 pl-4 py-2';
+        projectDiv.innerHTML = `
+            <h3 class="font-bold text-lg editable" data-field="project${projectCount}Title">New Project</h3>
+            <p class="text-gray-600 mb-2 editable" data-field="project${projectCount}Desc">Project description</p>
+            <p class="text-sm text-blue-600 mb-2 editable" data-field="project${projectCount}Tech">Tech stack</p>
+            <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="project${projectCount}Link">🔗 Project Link</a>
+            <button onclick="this.parentElement.remove()" class="ml-4 text-red-600 hover:text-red-800 text-sm">Remove</button>
+        `;
+        projectsContainer.appendChild(projectDiv);
+    }
+
+    function addInternship() {
+        const container = document.getElementById('internshipsList');
+        const count = container.children.length + 1;
+
+        const internDiv = document.createElement('div');
+        internDiv.className = 'bg-gray-50 p-4 rounded-lg';
+        internDiv.innerHTML = `
+            <h3 class="font-bold text-lg editable" data-field="intern${count}Company">Company Name</h3>
+            <p class="text-blue-600 font-medium editable" data-field="intern${count}Role">Role</p>
+            <p class="text-gray-600 text-sm mb-2 editable" data-field="intern${count}Duration">Duration</p>
+            <p class="text-gray-700 editable" data-field="intern${count}Desc">Description</p>
+            <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
+        `;
+        container.appendChild(internDiv);
+    }
+
+    function addCertification() {
+        const container = document.getElementById('certificationsList');
+        const count = container.children.length + 1;
+
+        const certDiv = document.createElement('div');
+        certDiv.className = 'border border-gray-200 p-4 rounded-lg';
+        certDiv.innerHTML = `
+            <h3 class="font-bold editable" data-field="cert${count}Name">Certification Name</h3>
+            <p class="text-gray-600 text-sm editable" data-field="cert${count}Provider">Provider</p>
+            <p class="text-blue-600 text-sm editable" data-field="cert${count}Date">Date</p>
+            <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
+        `;
+        container.appendChild(certDiv);
+    }
+
+    function addAchievement() {
+        const container = document.getElementById('achievementsList');
+        const count = container.children.length + 1;
+
+        const achieveDiv = document.createElement('div');
+        achieveDiv.className = 'flex items-center space-x-3';
+        achieveDiv.innerHTML = `
+            <span class="text-2xl">🏅</span>
+            <div class="flex-1">
+                <p class="font-medium editable" data-field="achieve${count}">Achievement Title</p>
+                <p class="text-sm text-gray-600 editable" data-field="achieve${count}Desc">Description</p>
+            </div>
+            <button onclick="this.parentElement.remove()" class="text-red-600 hover:text-red-800 text-sm">Remove</button>
+        `;
+        container.appendChild(achieveDiv);
+    }
+
+    function handleResumeUpload(event) {
+        const file = event.target.files[0];
+        if (file && file.type === 'application/pdf') {
+            document.getElementById('resumeSection').style.display = 'none';
+            document.getElementById('uploadedResume').style.display = 'block';
+            document.getElementById('resumeName').textContent = file.name;
+            document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
+
+            // Store file reference
+            profileData.resumeFile = file;
+        } else {
+            alert('Please upload a PDF file only.');
         }
-        return;
-      }
+    }
 
-      submitBtn.innerHTML = '<span>⏳</span> Saving Profile...';
-      submitBtn.disabled = true;
-
-      setTimeout(() => {
-        successBanner.style.display = 'flex';
-        successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        submitBtn.innerHTML = '<span>💾</span> Save Profile';
-        submitBtn.disabled = false;
-        
-        setTimeout(() => {
-          successBanner.style.display = 'none';
-        }, 5000);
-      }, 2000);
-    });
-
-
-
-    // Auto-format mobile number
-    form.addEventListener('input', function(e) {
-      if (e.target.type === 'tel') {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 10) {
-          value = value.substring(0, 10);
-        }
-        e.target.value = value;
-      }
-    });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973035ed63444938',t:'MTc1NTg0MzA2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-=======
-        function downloadResume() {
-            if (profileData.resumeFile) {
-                const url = URL.createObjectURL(profileData.resumeFile);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = profileData.resumeFile.name;
-                a.click();
-                URL.revokeObjectURL(url);
+    function handleCertUpload(event) {
+        const files = Array.from(event.target.files);
+        files.forEach(file => {
+            if (file.size <= 5 * 1024 * 1024) { // 5MB limit
+                console.log(`Uploaded certificate: ${file.name}`);
+                // Here you would typically upload to a server
+            } else {
+                alert(`File ${file.name} is too large. Maximum size is 5MB.`);
             }
-        }
+        });
+    }
 
-        function removeResume() {
-            if (confirm('Are you sure you want to remove the resume?')) {
-                document.getElementById('resumeSection').style.display = 'block';
-                document.getElementById('uploadedResume').style.display = 'none';
-                profileData.resumeFile = null;
-            }
-        }
-
-        function exportProfile() {
-            const profileHTML = document.documentElement.outerHTML;
-            const blob = new Blob([profileHTML], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
+    function downloadResume() {
+        if (profileData.resumeFile) {
+            const url = URL.createObjectURL(profileData.resumeFile);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'student_profile.html';
+            a.download = profileData.resumeFile.name;
             a.click();
             URL.revokeObjectURL(url);
         }
+    }
 
-        // Load profile data from localStorage on page load
-        window.addEventListener('load', function () {
-            const savedData = localStorage.getItem('studentProfile');
-            if (savedData) {
-                profileData = { ...profileData, ...JSON.parse(savedData) };
-
-                // Update UI with saved data
-                Object.keys(profileData).forEach(key => {
-                    const element = document.querySelector(`[data-field="${key}"]`);
-                    if (element && profileData[key]) {
-                        element.textContent = profileData[key];
-                    }
-                });
-            }
-
-            // Load data from info.html if available
-            const infoData = localStorage.getItem('studentInfo');
-            if (infoData) {
-                const info = JSON.parse(infoData);
-                if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
-                if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
-                if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
-                if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
-                if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
-                if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
-                if (info.tenth) document.querySelector('[data-field="tenth"]').textContent = info.tenth;
-                if (info.twelfth) document.querySelector('[data-field="twelfth"]').textContent = info.twelfth;
-                if (info.linkedin) document.querySelector('[data-field="linkedin"]').textContent = info.linkedin;
-
-                // Load photo if available
-                if (info.photo) {
-                    document.getElementById('profilePhoto').src = info.photo;
-                    document.getElementById('profilePhoto').style.display = 'block';
-                    document.getElementById('profilePhotoPlaceholder').style.display = 'none';
-                }
-            }
-        });
-
-        /* ==============================
-   Sidebar Functions
-============================== */
-        function openSidebar() {
-            document.getElementById("sidebar").style.width = "250px";
+    function removeResume() {
+        if (confirm('Are you sure you want to remove the resume?')) {
+            document.getElementById('resumeSection').style.display = 'block';
+            document.getElementById('uploadedResume').style.display = 'none';
+            profileData.resumeFile = null;
         }
-        function closeSidebar() {
-            document.getElementById("sidebar").style.width = "0";
+    }
+
+    function exportProfile() {
+        const profileHTML = document.documentElement.outerHTML;
+        const blob = new Blob([profileHTML], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'student_profile.html';
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    // Load profile data from localStorage on page load
+    window.addEventListener('load', function () {
+        const savedData = localStorage.getItem('studentProfile');
+        if (savedData) {
+            profileData = { ...profileData, ...JSON.parse(savedData) };
+
+            // Update UI with saved data
+            Object.keys(profileData).forEach(key => {
+                const element = document.querySelector(`[data-field="${key}"]`);
+                if (element && profileData[key]) {
+                    element.textContent = profileData[key];
+                }
+            });
         }
 
-        // Add click handlers for skill tags in edit mode
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('skill-tag') && isEditMode) {
-                if (confirm('Remove this skill?')) {
-                    e.target.remove();
-                }
+        // Load data from info.html if available
+        const infoData = localStorage.getItem('studentInfo');
+        if (infoData) {
+            const info = JSON.parse(infoData);
+            if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
+            if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
+            if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
+            if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
+            if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
+            if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
+            if (info.tenth) document.querySelector('[data-field="tenth"]').textContent = info.tenth;
+            if (info.twelfth) document.querySelector('[data-field="twelfth"]').textContent = info.twelfth;
+            if (info.linkedin) document.querySelector('[data-field="linkedin"]').textContent = info.linkedin;
+
+            // Load photo if available
+            if (info.photo) {
+                document.getElementById('profilePhoto').src = info.photo;
+                document.getElementById('profilePhoto').style.display = 'block';
+                document.getElementById('profilePhotoPlaceholder').style.display = 'none';
             }
-        });
-    </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97323d7685ba41b3',t:'MTc1NTg2NDM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+        }
+    });
+
+    /* ==============================
+       Sidebar Functions
+    ============================== */
+    function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+    }
+    function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+    }
+
+    // Add click handlers for skill tags in edit mode
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('skill-tag') && isEditMode) {
+            if (confirm('Remove this skill?')) {
+                e.target.remove();
+            }
+        }
+    });
+</script>
+
 </body>
 
->>>>>>> a7f5837b9d340b38f49745489f946ee500a988ab
 </html>
