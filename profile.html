@@ -164,119 +164,130 @@
         }
 
         /* 🔹 Navbar */
-.navbar {
-  background: linear-gradient(135deg, #3498db, #2980b9);
-  padding: 12px 0;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+        .navbar {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            padding: 12px 0;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-/* 🔹 Blinking Important Links */
-.blink-link {
-  color: red;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  margin: 0 90px;
-  animation: blink 1s infinite;
-}
+        /* 🔹 Blinking Important Links */
+        .blink-link {
+            color: red;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0 90px;
+            animation: blink 1s infinite;
+        }
 
-.blink-link:hover {
-  color: yellow;
-  text-decoration: underline;
-}
+        .blink-link:hover {
+            color: yellow;
+            text-decoration: underline;
+        }
 
-@keyframes blink {
-  0%   { opacity: 1; }
-  50%  { opacity: 0; }
-  100% { opacity: 1; }
-}
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
 
-/* 🔹 Footer */
-.footer {
-  background: #222;
-  color: #ddd;
-  padding: 40px 20px 20px;
-  margin-top: 40px;
-}
+            50% {
+                opacity: 0;
+            }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-}
+            100% {
+                opacity: 1;
+            }
+        }
 
-.footer-col {
-  flex: 1 1 250px;
-  margin: 10px;
-}
+        /* 🔹 Footer */
+        .footer {
+            background: #222;
+            color: #ddd;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+        }
 
-.footer h3 {
-  color: #ffcc00;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-.footer p,
-.footer a {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #ccc;
-  text-decoration: none;
-}
+        .footer-col {
+            flex: 1 1 250px;
+            margin: 10px;
+        }
 
-.footer a:hover {
-  color: #fff;
-}
+        .footer h3 {
+            color: #ffcc00;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
 
-/* 🔹 Social Icons */
-/* 🔹 Social Icons */
-.social-icons {
-  display: flex;          /* put icons in one row */
-  align-items: center;
-  gap: 10px;              /* space between icons */
-  margin-top: 8px;
-}
+        .footer p,
+        .footer a {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+            text-decoration: none;
+        }
 
-.social-icons a {
-  display: inline-block;  /* keeps icons inline */
-}
+        .footer a:hover {
+            color: #fff;
+        }
 
-.social-icons img {
-  width: 28px;
-  height: 28px;
-  transition: 0.3s;
-  border-radius: 50%; /* optional - round icons */
-}
+        /* 🔹 Social Icons */
+        /* 🔹 Social Icons */
+        .social-icons {
+            display: flex;
+            /* put icons in one row */
+            align-items: center;
+            gap: 10px;
+            /* space between icons */
+            margin-top: 8px;
+        }
 
-.social-icons img:hover {
-  transform: scale(1.2);
-}
+        .social-icons a {
+            display: inline-block;
+            /* keeps icons inline */
+        }
 
+        .social-icons img {
+            width: 28px;
+            height: 28px;
+            transition: 0.3s;
+            border-radius: 50%;
+            /* optional - round icons */
+        }
 
-/* 🔹 Google Maps Link */
-.map-link {
-  color: #ff6666;   /* eye-catching red */
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 5px;
-}
-
-.map-link:hover {
-  color: #fff;
-  text-decoration: underline;
-}
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
 
 
+        /* 🔹 Google Maps Link */
+        .map-link {
+            color: #ff6666;
+            /* eye-catching red */
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .map-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -310,16 +321,20 @@
 
 
     <!-- 🔹 Navigation Bar -->
-<nav class="navbar">
-  <ul class="nav-links">
-    <marquee behavior="scroll" direction="left" scrollamount="6">
-      <a href="https://perfleap.com/NutrabaySDEInternship" target="_blank" class="blink-link">Nutrabay SDE Internship</a> |
-      <a href="https://zuddl.keka.com/careers/jobdetails/95456" target="_blank" class="blink-link">Zuddl Careers</a> |
-      <a href="https://ibmglobal.avature.net/en_US/careers/JobDetail?jobId=48508&source=WEB_Search_INDIA" target="_blank" class="blink-link">IBM Careers</a> |
-      <a href="https://www.linkedin.com/jobs/view/4251605441" target="_blank" class="blink-link">LinkedIn Job</a>
-    </marquee>
-  </ul>
-</nav>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <marquee behavior="scroll" direction="left" scrollamount="6">
+                <a href="https://perfleap.com/NutrabaySDEInternship" target="_blank" class="blink-link">Nutrabay SDE
+                    Internship</a> |
+                <a href="https://zuddl.keka.com/careers/jobdetails/95456" target="_blank" class="blink-link">Zuddl
+                    Careers</a> |
+                <a href="https://ibmglobal.avature.net/en_US/careers/JobDetail?jobId=48508&source=WEB_Search_INDIA"
+                    target="_blank" class="blink-link">IBM Careers</a> |
+                <a href="https://www.linkedin.com/jobs/view/4251605441" target="_blank" class="blink-link">LinkedIn
+                    Job</a>
+            </marquee>
+        </ul>
+    </nav>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
@@ -329,14 +344,14 @@
                 <div class="flex items-center space-x-4">
                     <button onclick="toggleEditMode()" id="editBtn"
                         class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                      Edit Profile
+                        Edit Profile
                     </button>
                     <button onclick="saveProfile()" id="saveBtn"
                         class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
                         style="display: none;">
-                       Save Changes
+                        Save Changes
                     </button>
-                    
+
                 </div>
             </div>
         </div>
@@ -356,7 +371,7 @@
                         <h1 class="text-4xl font-bold mb-2 editable" data-field="name">Student Name</h1>
                         <p class="text-xl opacity-90 mb-1 editable" data-field="rollNumber">Roll Number</p>
                         <p class="text-lg opacity-80 editable" data-field="branchYear">Branch & Year</p>
-                        
+
                     </div>
                 </div>
             </div>
@@ -700,207 +715,208 @@
             </div>
         </div>
     </div>
-<!-- 🔹 Footer -->
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3>Important Links</h3>
-      <ul>
-        <li><a href="#">Newsletters</a></li>
-        <li><a href="#">AICTE EoA & LoI</a></li>
-        <li><a href="#">RTMNU Affiliation</a></li>
-        <li><a href="#">NIRF Reports</a></li>
-        <li><a href="#">Mandatory Disclosures</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-    </div>
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="#">Newsletters</a></li>
+                    <li><a href="#">AICTE EoA & LoI</a></li>
+                    <li><a href="#">RTMNU Affiliation</a></li>
+                    <li><a href="#">NIRF Reports</a></li>
+                    <li><a href="#">Mandatory Disclosures</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
 
-    <div class="footer-col">
-      <h3>Contact Us</h3>
-      <p>📞 +91 9420410225</p>
-      <p>📞 +91 8055935567</p>
-      <p>📞 +91 7768929237</p>
-      <p>📞 +91 8422008886</p>
-      <p>✉ office@cumminscollege.edu.in</p>
-    </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>📞 +91 9420410225</p>
+                <p>📞 +91 8055935567</p>
+                <p>📞 +91 7768929237</p>
+                <p>📞 +91 8422008886</p>
+                <p>✉ office@cumminscollege.edu.in</p>
+            </div>
 
-    <div class="footer-col">
-      <h3>City Office</h3>
-      <p>Maharshi Karve Stree Shikshan Samstha's</p>
-      <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
-      <p>Nagpur - 440015</p>
-    </div>
+            <div class="footer-col">
+                <h3>City Office</h3>
+                <p>Maharshi Karve Stree Shikshan Samstha's</p>
+                <p>Nargundkar Shaikshanik Prakalp, Khamla Road, Deonagar</p>
+                <p>Nagpur - 440015</p>
+            </div>
 
-    <div class="footer-col">
-      <h3>Institute Address</h3>
-      <p>
-        <a href="https://www.google.com/maps/place/Cummins+College+Of+Engineering+For+Women,+Nagpur/@21.1220581,78.9468932,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd4957a9f9a7d8b:0x5d2e5d0b505d1e58!8m2!3d21.1220581!4d78.9468932!16s%2Fg%2F11h8y2sk53?entry=ttu" 
-           target="_blank" class="map-link">
-          Cummins College Of Engineering For Women, Nagpur,<br>
-          3X9H+JPW, Tal, Mouje, Gupchup, Sukali, Hingna,<br>
-          Maharashtra 441110
-        </a>
-      </p>
+            <div class="footer-col">
+                <h3>Institute Address</h3>
+                <p>
+                    <a href="https://www.google.com/maps/place/Cummins+College+Of+Engineering+For+Women,+Nagpur/@21.1220581,78.9468932,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd4957a9f9a7d8b:0x5d2e5d0b505d1e58!8m2!3d21.1220581!4d78.9468932!16s%2Fg%2F11h8y2sk53?entry=ttu"
+                        target="_blank" class="map-link">
+                        Cummins College Of Engineering For Women, Nagpur,<br>
+                        3X9H+JPW, Tal, Mouje, Gupchup, Sukali, Hingna,<br>
+                        Maharashtra 441110
+                    </a>
+                </p>
 
-      <h3>Social Connect</h3>
-      <div class="social-icons">
-        <p><a href="https://www.facebook.com/CCOEWNAGPUR/" target="_blank">
-          <img src="facebbok.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/ccoewnagpur/?hl=en" target="_blank">
-          <img src="insta.svg" alt="Instagram">
-        </a>
-        <a href="https://www.linkedin.com/school/cummins-college-of-engineering-for-women-mauja/?originalSubdomain=in" target="_blank">
-          <img src="leankdean.jpg" alt="LinkedIn">
-        </a>
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
+                <h3>Social Connect</h3>
+                <div class="social-icons">
+                    <p><a href="https://www.facebook.com/CCOEWNAGPUR/" target="_blank">
+                            <img src="facebbok.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/ccoewnagpur/?hl=en" target="_blank">
+                            <img src="insta.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.linkedin.com/school/cummins-college-of-engineering-for-women-mauja/?originalSubdomain=in"
+                            target="_blank">
+                            <img src="leankdean.jpg" alt="LinkedIn">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
-    let isEditMode = false;
-    let profileData = {
-        name: 'Student Name',
-        rollNumber: 'Roll Number',
-        branchYear: 'Branch & Year',
-        email: 'email@example.com',
-        mobile: '+91 XXXXXXXXXX',
-        cgpa: '8.5',
-        tenth: '95%',
-        twelfth: '88%',
-        linkedin: 'Not linked',
-        github: 'Not linked',
-        leetcode: 'Not linked',
-        hackerrank: 'Not linked',
-        dreamRole: 'Software Engineer',
-        jobPreference: 'IT',
-        relocate: 'Yes'
-    };
+        let isEditMode = false;
+        let profileData = {
+            name: 'Student Name',
+            rollNumber: 'Roll Number',
+            branchYear: 'Branch & Year',
+            email: 'email@example.com',
+            mobile: '+91 XXXXXXXXXX',
+            cgpa: '8.5',
+            tenth: '95%',
+            twelfth: '88%',
+            linkedin: 'Not linked',
+            github: 'Not linked',
+            leetcode: 'Not linked',
+            hackerrank: 'Not linked',
+            dreamRole: 'Software Engineer',
+            jobPreference: 'IT',
+            relocate: 'Yes'
+        };
 
-    function toggleEditMode() {
-        isEditMode = !isEditMode;
-        const editBtn = document.getElementById('editBtn');
-        const saveBtn = document.getElementById('saveBtn');
-        const editOnlyElements = document.querySelectorAll('.edit-only');
-        const editableElements = document.querySelectorAll('.editable');
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const editBtn = document.getElementById('editBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const editOnlyElements = document.querySelectorAll('.edit-only');
+            const editableElements = document.querySelectorAll('.editable');
 
-        if (isEditMode) {
-            editBtn.style.display = 'none';
-            saveBtn.style.display = 'block';
-            editOnlyElements.forEach(el => el.style.display = 'block');
-            editableElements.forEach(el => {
-                el.classList.add('edit-mode');
-                el.contentEditable = true;
-                el.style.cursor = 'text';
-            });
-        } else {
-            editBtn.style.display = 'block';
-            saveBtn.style.display = 'none';
-            editOnlyElements.forEach(el => el.style.display = 'none');
-            editableElements.forEach(el => {
-                el.classList.remove('edit-mode');
-                el.contentEditable = false;
-                el.style.cursor = 'default';
-            });
-        }
-    }
-
-    function saveProfile() {
-        // Collect all editable data
-        const editableElements = document.querySelectorAll('.editable');
-        editableElements.forEach(el => {
-            const field = el.getAttribute('data-field');
-            if (field) {
-                profileData[field] = el.textContent.trim();
+            if (isEditMode) {
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'block';
+                editOnlyElements.forEach(el => el.style.display = 'block');
+                editableElements.forEach(el => {
+                    el.classList.add('edit-mode');
+                    el.contentEditable = true;
+                    el.style.cursor = 'text';
+                });
+            } else {
+                editBtn.style.display = 'block';
+                saveBtn.style.display = 'none';
+                editOnlyElements.forEach(el => el.style.display = 'none');
+                editableElements.forEach(el => {
+                    el.classList.remove('edit-mode');
+                    el.contentEditable = false;
+                    el.style.cursor = 'default';
+                });
             }
-        });
-
-        // Save to localStorage
-        localStorage.setItem('studentProfile', JSON.stringify(profileData));
-
-        toggleEditMode();
-        alert('Profile saved successfully! 💾');
-    }
-
-    function addSkill(category) {
-        const skillText = prompt(`Enter new ${category} skill:`);
-        if (skillText) {
-            const container = document.getElementById(`${category}Skills`);
-            const colors = {
-                technical: 'bg-blue-100 text-blue-800',
-                tools: 'bg-orange-100 text-orange-800',
-                core: 'bg-indigo-100 text-indigo-800',
-                soft: 'bg-yellow-100 text-yellow-800'
-            };
-
-            const skillTag = document.createElement('span');
-            skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
-            skillTag.textContent = skillText;
-            skillTag.onclick = () => {
-                if (isEditMode && confirm('Remove this skill?')) {
-                    skillTag.remove();
-                }
-            };
-            container.appendChild(skillTag);
         }
-    }
 
-    function addProject() {
-        const projectsContainer = document.getElementById('projectsList');
-        const projectCount = projectsContainer.children.length + 1;
+        function saveProfile() {
+            // Collect all editable data
+            const editableElements = document.querySelectorAll('.editable');
+            editableElements.forEach(el => {
+                const field = el.getAttribute('data-field');
+                if (field) {
+                    profileData[field] = el.textContent.trim();
+                }
+            });
 
-        const projectDiv = document.createElement('div');
-        projectDiv.className = 'border-l-4 border-blue-500 pl-4 py-2';
-        projectDiv.innerHTML = `
+            // Save to localStorage
+            localStorage.setItem('studentProfile', JSON.stringify(profileData));
+
+            toggleEditMode();
+            alert('Profile saved successfully! 💾');
+        }
+
+        function addSkill(category) {
+            const skillText = prompt(`Enter new ${category} skill:`);
+            if (skillText) {
+                const container = document.getElementById(`${category}Skills`);
+                const colors = {
+                    technical: 'bg-blue-100 text-blue-800',
+                    tools: 'bg-orange-100 text-orange-800',
+                    core: 'bg-indigo-100 text-indigo-800',
+                    soft: 'bg-yellow-100 text-yellow-800'
+                };
+
+                const skillTag = document.createElement('span');
+                skillTag.className = `skill-tag ${colors[category]} px-3 py-1 rounded-full text-sm`;
+                skillTag.textContent = skillText;
+                skillTag.onclick = () => {
+                    if (isEditMode && confirm('Remove this skill?')) {
+                        skillTag.remove();
+                    }
+                };
+                container.appendChild(skillTag);
+            }
+        }
+
+        function addProject() {
+            const projectsContainer = document.getElementById('projectsList');
+            const projectCount = projectsContainer.children.length + 1;
+
+            const projectDiv = document.createElement('div');
+            projectDiv.className = 'border-l-4 border-blue-500 pl-4 py-2';
+            projectDiv.innerHTML = `
             <h3 class="font-bold text-lg editable" data-field="project${projectCount}Title">New Project</h3>
             <p class="text-gray-600 mb-2 editable" data-field="project${projectCount}Desc">Project description</p>
             <p class="text-sm text-blue-600 mb-2 editable" data-field="project${projectCount}Tech">Tech stack</p>
             <a href="#" class="text-blue-600 hover:underline text-sm editable" data-field="project${projectCount}Link">🔗 Project Link</a>
             <button onclick="this.parentElement.remove()" class="ml-4 text-red-600 hover:text-red-800 text-sm">Remove</button>
         `;
-        projectsContainer.appendChild(projectDiv);
-    }
+            projectsContainer.appendChild(projectDiv);
+        }
 
-    function addInternship() {
-        const container = document.getElementById('internshipsList');
-        const count = container.children.length + 1;
+        function addInternship() {
+            const container = document.getElementById('internshipsList');
+            const count = container.children.length + 1;
 
-        const internDiv = document.createElement('div');
-        internDiv.className = 'bg-gray-50 p-4 rounded-lg';
-        internDiv.innerHTML = `
+            const internDiv = document.createElement('div');
+            internDiv.className = 'bg-gray-50 p-4 rounded-lg';
+            internDiv.innerHTML = `
             <h3 class="font-bold text-lg editable" data-field="intern${count}Company">Company Name</h3>
             <p class="text-blue-600 font-medium editable" data-field="intern${count}Role">Role</p>
             <p class="text-gray-600 text-sm mb-2 editable" data-field="intern${count}Duration">Duration</p>
             <p class="text-gray-700 editable" data-field="intern${count}Desc">Description</p>
             <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
         `;
-        container.appendChild(internDiv);
-    }
+            container.appendChild(internDiv);
+        }
 
-    function addCertification() {
-        const container = document.getElementById('certificationsList');
-        const count = container.children.length + 1;
+        function addCertification() {
+            const container = document.getElementById('certificationsList');
+            const count = container.children.length + 1;
 
-        const certDiv = document.createElement('div');
-        certDiv.className = 'border border-gray-200 p-4 rounded-lg';
-        certDiv.innerHTML = `
+            const certDiv = document.createElement('div');
+            certDiv.className = 'border border-gray-200 p-4 rounded-lg';
+            certDiv.innerHTML = `
             <h3 class="font-bold editable" data-field="cert${count}Name">Certification Name</h3>
             <p class="text-gray-600 text-sm editable" data-field="cert${count}Provider">Provider</p>
             <p class="text-blue-600 text-sm editable" data-field="cert${count}Date">Date</p>
             <button onclick="this.parentElement.remove()" class="mt-2 text-red-600 hover:text-red-800 text-sm">Remove</button>
         `;
-        container.appendChild(certDiv);
-    }
+            container.appendChild(certDiv);
+        }
 
-    function addAchievement() {
-        const container = document.getElementById('achievementsList');
-        const count = container.children.length + 1;
+        function addAchievement() {
+            const container = document.getElementById('achievementsList');
+            const count = container.children.length + 1;
 
-        const achieveDiv = document.createElement('div');
-        achieveDiv.className = 'flex items-center space-x-3';
-        achieveDiv.innerHTML = `
+            const achieveDiv = document.createElement('div');
+            achieveDiv.className = 'flex items-center space-x-3';
+            achieveDiv.innerHTML = `
             <span class="text-2xl">🏅</span>
             <div class="flex-1">
                 <p class="font-medium editable" data-field="achieve${count}">Achievement Title</p>
@@ -908,123 +924,123 @@
             </div>
             <button onclick="this.parentElement.remove()" class="text-red-600 hover:text-red-800 text-sm">Remove</button>
         `;
-        container.appendChild(achieveDiv);
-    }
-
-    function handleResumeUpload(event) {
-        const file = event.target.files[0];
-        if (file && file.type === 'application/pdf') {
-            document.getElementById('resumeSection').style.display = 'none';
-            document.getElementById('uploadedResume').style.display = 'block';
-            document.getElementById('resumeName').textContent = file.name;
-            document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
-
-            // Store file reference
-            profileData.resumeFile = file;
-        } else {
-            alert('Please upload a PDF file only.');
+            container.appendChild(achieveDiv);
         }
-    }
 
-    function handleCertUpload(event) {
-        const files = Array.from(event.target.files);
-        files.forEach(file => {
-            if (file.size <= 5 * 1024 * 1024) { // 5MB limit
-                console.log(`Uploaded certificate: ${file.name}`);
-                // Here you would typically upload to a server
+        function handleResumeUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                document.getElementById('resumeSection').style.display = 'none';
+                document.getElementById('uploadedResume').style.display = 'block';
+                document.getElementById('resumeName').textContent = file.name;
+                document.getElementById('resumeSize').textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB`;
+
+                // Store file reference
+                profileData.resumeFile = file;
             } else {
-                alert(`File ${file.name} is too large. Maximum size is 5MB.`);
+                alert('Please upload a PDF file only.');
             }
-        });
-    }
-
-    function downloadResume() {
-        if (profileData.resumeFile) {
-            const url = URL.createObjectURL(profileData.resumeFile);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = profileData.resumeFile.name;
-            a.click();
-            URL.revokeObjectURL(url);
         }
-    }
 
-    function removeResume() {
-        if (confirm('Are you sure you want to remove the resume?')) {
-            document.getElementById('resumeSection').style.display = 'block';
-            document.getElementById('uploadedResume').style.display = 'none';
-            profileData.resumeFile = null;
-        }
-    }
-
-    function exportProfile() {
-        const profileHTML = document.documentElement.outerHTML;
-        const blob = new Blob([profileHTML], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'student_profile.html';
-        a.click();
-        URL.revokeObjectURL(url);
-    }
-
-    // Load profile data from localStorage on page load
-    window.addEventListener('load', function () {
-        const savedData = localStorage.getItem('studentProfile');
-        if (savedData) {
-            profileData = { ...profileData, ...JSON.parse(savedData) };
-
-            // Update UI with saved data
-            Object.keys(profileData).forEach(key => {
-                const element = document.querySelector(`[data-field="${key}"]`);
-                if (element && profileData[key]) {
-                    element.textContent = profileData[key];
+        function handleCertUpload(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => {
+                if (file.size <= 5 * 1024 * 1024) { // 5MB limit
+                    console.log(`Uploaded certificate: ${file.name}`);
+                    // Here you would typically upload to a server
+                } else {
+                    alert(`File ${file.name} is too large. Maximum size is 5MB.`);
                 }
             });
         }
 
-        // Load data from info.html if available
-        const infoData = localStorage.getItem('studentInfo');
-        if (infoData) {
-            const info = JSON.parse(infoData);
-            if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
-            if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
-            if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
-            if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
-            if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
-            if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
-            if (info.tenth) document.querySelector('[data-field="tenth"]').textContent = info.tenth;
-            if (info.twelfth) document.querySelector('[data-field="twelfth"]').textContent = info.twelfth;
-            if (info.linkedin) document.querySelector('[data-field="linkedin"]').textContent = info.linkedin;
-
-            // Load photo if available
-            if (info.photo) {
-                document.getElementById('profilePhoto').src = info.photo;
-                document.getElementById('profilePhoto').style.display = 'block';
-                document.getElementById('profilePhotoPlaceholder').style.display = 'none';
+        function downloadResume() {
+            if (profileData.resumeFile) {
+                const url = URL.createObjectURL(profileData.resumeFile);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = profileData.resumeFile.name;
+                a.click();
+                URL.revokeObjectURL(url);
             }
         }
-    });
 
-    /* ==============================
-       Sidebar Functions
-    ============================== */
-    function openSidebar() {
-        document.getElementById("sidebar").style.width = "250px";
-    }
-    function closeSidebar() {
-        document.getElementById("sidebar").style.width = "0";
-    }
-
-    // Add click handlers for skill tags in edit mode
-    document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('skill-tag') && isEditMode) {
-            if (confirm('Remove this skill?')) {
-                e.target.remove();
+        function removeResume() {
+            if (confirm('Are you sure you want to remove the resume?')) {
+                document.getElementById('resumeSection').style.display = 'block';
+                document.getElementById('uploadedResume').style.display = 'none';
+                profileData.resumeFile = null;
             }
         }
-    });
-</script>
+
+        function exportProfile() {
+            const profileHTML = document.documentElement.outerHTML;
+            const blob = new Blob([profileHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'student_profile.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Load profile data from localStorage on page load
+        window.addEventListener('load', function () {
+            const savedData = localStorage.getItem('studentProfile');
+            if (savedData) {
+                profileData = { ...profileData, ...JSON.parse(savedData) };
+
+                // Update UI with saved data
+                Object.keys(profileData).forEach(key => {
+                    const element = document.querySelector(`[data-field="${key}"]`);
+                    if (element && profileData[key]) {
+                        element.textContent = profileData[key];
+                    }
+                });
+            }
+
+            // Load data from info.html if available
+            const infoData = localStorage.getItem('studentInfo');
+            if (infoData) {
+                const info = JSON.parse(infoData);
+                if (info.name) document.querySelector('[data-field="name"]').textContent = info.name;
+                if (info.rollNumber) document.querySelector('[data-field="rollNumber"]').textContent = info.rollNumber;
+                if (info.branch && info.year) document.querySelector('[data-field="branchYear"]').textContent = `${info.branch} - ${info.year}`;
+                if (info.email) document.querySelector('[data-field="email"]').textContent = info.email;
+                if (info.mobile) document.querySelector('[data-field="mobile"]').textContent = info.mobile;
+                if (info.cgpa) document.querySelector('[data-field="cgpa"]').textContent = info.cgpa;
+                if (info.tenth) document.querySelector('[data-field="tenth"]').textContent = info.tenth;
+                if (info.twelfth) document.querySelector('[data-field="twelfth"]').textContent = info.twelfth;
+                if (info.linkedin) document.querySelector('[data-field="linkedin"]').textContent = info.linkedin;
+
+                // Load photo if available
+                if (info.photo) {
+                    document.getElementById('profilePhoto').src = info.photo;
+                    document.getElementById('profilePhoto').style.display = 'block';
+                    document.getElementById('profilePhotoPlaceholder').style.display = 'none';
+                }
+            }
+        });
+
+        /* ==============================
+           Sidebar Functions
+        ============================== */
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        // Add click handlers for skill tags in edit mode
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('skill-tag') && isEditMode) {
+                if (confirm('Remove this skill?')) {
+                    e.target.remove();
+                }
+            }
+        });
+    </script>
 
 </body>
 
